@@ -75,10 +75,22 @@ body {
   color: #1C1C1C;
 }
 
+.box-0 {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 38px;
+  margin-top: 20px;
+  width: 58%;
+  padding: 0 16px;
+}
+
 .box-1 {
   border: 1px solid #ccc;
   background: #f8f9fa;
   margin: 12px;
+  border-radius: 5px;
+  width: 60%;
 }
 
 .box-1:hover {

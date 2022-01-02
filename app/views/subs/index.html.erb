@@ -1,10 +1,18 @@
 
-<div class="border">
-  <h1>All the Subs!</h1>
+<div class="container box-container">
+
+  <div class="box-0">
+    <a href="/subs/new">
+    <input type="text" class="form-control" placeholder="Create Sub" aria-describedby="basic-addon1 ">
+    </a>
+  </div>
 
   <ul>
-    <% @subs.each do |sub| %>
-      <li><a href="<%= sub_url(sub) %>"><%= sub.title %></a><br></li>
-    <% end %>
+  <% @subs.each do |sub| %>
+    <div class="box-1">
+      <h4> <li><a href="<%= sub_url(sub) %>"><%= "r/" + sub.title + " Posted by u/" + current_user.username  %></a><br></li> </h4>
+      <p> <%= sub.description %> </p>
+    </div>
+  <% end %>
   </ul>
 </div>

@@ -37,7 +37,11 @@ ul {
   list-style: none;
 }
 
-
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
 input[type="password"],
 input[type="email"],
@@ -69,5 +73,36 @@ input[type="submit"] {
 body {
   background-color: #DAE0E6;
   color: #1C1C1C;
+}
+
+.box-0 {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 38px;
+  margin-top: 20px;
+  width: 59%;
+  padding: 0 16px;
+  margin-left: 35px;
+}
+
+.box-1 {
+  border: 1px solid #ccc;
+  background: #f8f9fa;
+  margin-top: 12px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  margin-left: 50px;
+  border-radius: 5px;
+  width: 60%;
+  padding: 7px;
+}
+
+.box-1:hover {
+  border: 1px solid #898989;
+}
+
+p {
+  font-size: 14px;
 }
 /*# sourceMappingURL=application.css.map */

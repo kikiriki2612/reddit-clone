@@ -1,8 +1,8 @@
-<nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light" >
   <div class="container">
   
     <%# <i class="fab fa-reddit"><a class="navbar-brand" href="/subs">reddit</a></i> %>
-    <a class="navbar-brand" href="/subs">
+    <a class="navbar-brand" href="/subs" >
     <%= image_tag("red1.png", :alt => "reddit logo", style: 'height:41px;width:75px;') %>
 
   </a>
@@ -13,28 +13,40 @@
       </form>
 
 
-      <ul class="nav justify-content-end">
+      <ul class="nav nav-ul justify-content-end">
       <% if current_user %>
         
        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/subs/new" ><%= "+" %></a>
+          <a class="nav-link active my-own-color" aria-current="page" href="/subs/new" ><%= "+" %></a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page"><%= current_user.username %></a>
+          <a class="nav-link my-own-color" aria-current="page"><%= current_user.username %></a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page"><%= button_to "Logout", session_url, method: :delete %></a>
+          <a class="nav-link active my-own-color" aria-current="page"><%= button_to "Logout", session_url, method: :delete %></a>
         </li>
 
-         
+        <% else %>
+
+        <li class="nav-item">
+            <a class="nav-link active my-own-color" aria-current="page"><%= link_to "Sign in!", new_session_url %></a>
+        </li>
+
+      <% end %> 
+
+      <div class="errors">
+        <% if flash[:errors] %>
+          <% flash[:errors].each do |error| %>
+            <%= error %>
+          <% end %>
+        <% end %>
+      </div>
 
 
       </ul>
-      <% else %>
-            <%= link_to "Sign in!", new_session_url %>
-      <% end %>
+      
 
   </div>
 </nav>

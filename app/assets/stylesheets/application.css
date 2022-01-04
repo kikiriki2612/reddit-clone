@@ -105,4 +105,20 @@ body {
 p {
   font-size: 14px;
 }
+
+.my-own-color {
+  color: #1a1a1b;
+}
+
+.nav-link {
+  font-size: 14px;
+}
+
+.nav-item:hover {
+  background-color: #dae0e6;
+}
+
+.nav-link:hover {
+  color: #1a1a1b;
+}
 /*# sourceMappingURL=application.css.map */

@@ -106,6 +106,16 @@ p {
   font-size: 14px;
 }
 
+span {
+  font-size: 12px;
+  color: #9a9999;
+  display: inline-block;
+}
+
+h5 {
+  display: inline-block;
+}
+
 .my-own-color {
   color: #1a1a1b;
 }

@@ -28,4 +28,14 @@
 p {
   font-size: 14px;
 }
+
+span {
+  font-size: 12px;
+  color: #9a9999;
+  display: inline-block;
+}
+
+h5 {
+  display: inline-block;
+}
 /*# sourceMappingURL=main_content_index.css.map */

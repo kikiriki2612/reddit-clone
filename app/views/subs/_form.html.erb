@@ -8,16 +8,21 @@
     value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="<%= http_method %>">
 
-  <label>
-    Title
-    <input name="sub[title]" value="<%= sub.title %>">
-  </label>
-  <br>
+<div class="container">
+  <div class="create-sub-box">
+    <label for="title">
+      <input name="sub[title]" class="form-control sub-create" value="<%= sub.title %>" placeholder="Title">
+    </label>
+    <br>
 
-  <label>
-    Description
-    <textarea name="sub[description]"><%= sub.description %></textarea>
-  </label>
+    <label>
+      <textarea name="sub[description]" class="form-control sub-create" placeholder="Text"><%= sub.description %></textarea>
+    </label>
 
-  <input type="submit" value="Submit!">
+    <hr>
+
+    <%# <input type="submit" value="Submit!"> %>
+    <button type="button" class="btn create-color create-button">Submit</button>
+  </div>
+</div>
 </form>

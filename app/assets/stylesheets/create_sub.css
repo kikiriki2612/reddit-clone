@@ -1,9 +1,9 @@
 .create-sub-box {
-  border: 1px solid purple;
   background-color: #f8f9fa;
   width: 65%;
   margin: 0 auto;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 label {
@@ -29,5 +29,9 @@ label {
 .create-button:hover {
   color: #ccc;
   background-color: #9d9d9d;
+}
+
+#hr-sub {
+  color: #898989;
 }
 /*# sourceMappingURL=create_sub.css.map */

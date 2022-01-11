@@ -1,18 +1,34 @@
-<div class="border">
+<div class="show-sub">
   <h1>
     <%= @sub.title %>
   </h1>
 
 
-  <b>Description</b>
-  <p><%= @sub.description %></p>
+  <%# <b>Description</b> %>
+  <div class="container-1">
 
-  <a href="<%= new_post_url %>">Make New Post!</a>
+    <div class="box-posts">
+      
+      <div class="box-0">
+        <a href="/subs/new">
+          <input type="text" class="form-control" placeholder="Create Sub" aria-describedby="basic-addon1 ">
+        </a>
+      </div>
 
-  <ul>
-    <% @sub.posts.each do |post| %>
-      <li>(<%= post.votes %>) <a href="<%= post_url(post) %>"><%= post.title %></a></li>
-    <% end %>
-  </ul>
-  <a href="<%= edit_sub_url(@sub) if @sub.moderator == current_user %>">Edit</a>
+      <ul>
+        <% @sub.posts.each do |post| %>
+        <div class="box-1">
+          <li>(<%= post.votes %>) <a href="<%= post_url(post) %>"><%= post.title %></a></li>
+        </div>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="box-description">
+      <h6> About Community </h6>
+      <p><%= @sub.description %></p>
+    </div>
+
+  </div>
+  
 </div>

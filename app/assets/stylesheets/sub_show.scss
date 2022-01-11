@@ -1,0 +1,25 @@
+.show-sub {
+    border: 2px solid yellowgreen;
+    width: 65%;
+    margin: 0 auto;
+}
+
+.container-1 {
+    display: flex;
+}
+
+.box-posts {
+    flex: 3;
+}
+
+.box-description {
+    flex: 1;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+}
+
+h6 {
+    background-color: #646d73;
+    color: white;
+    padding: 10px;
+}

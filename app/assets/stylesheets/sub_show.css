@@ -1,0 +1,32 @@
+.show-sub {
+  border: 2px solid yellowgreen;
+  width: 65%;
+  margin: 0 auto;
+}
+
+.container-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.box-posts {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+.box-description {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+}
+
+h6 {
+  background-color: #646d73;
+  color: white;
+  padding: 10px;
+}
+/*# sourceMappingURL=sub_show.css.map */

@@ -100,6 +100,7 @@ body {
 
 .box-1:hover {
   border: 1px solid #898989;
+  cursor: pointer;
 }
 
 p {
@@ -186,7 +187,6 @@ label {
 }
 
 .show-sub {
-  border: 2px solid yellowgreen;
   width: 65%;
   margin: 0 auto;
 }
@@ -209,11 +209,28 @@ label {
           flex: 1;
   background-color: #f8f9fa;
   border: 1px solid #ccc;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 h6 {
   background-color: #646d73;
   color: white;
   padding: 10px;
+}
+
+#p-description {
+  padding: 10px;
+}
+
+#h1-sub {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 32px;
+  padding: 0 2px 4px 0;
+  width: 100%;
+  margin-left: 50px;
+  margin-top: 13px;
 }
 /*# sourceMappingURL=application.css.map */

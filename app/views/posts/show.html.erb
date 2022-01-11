@@ -1,38 +1,43 @@
 <div class="container-post">
 
-  <ul>
-    <% @post.subs.each do |sub| %>
-      <h5 id="h5-post"> <li><a href="<%= sub_url(sub) %>"><%= "r/" + sub.title %></a></li> </h5>
-      <span>Posted by
-    <%= "u/" + @post.author.username %></span>
-    <% end %>
-  </ul>
 
-  <h1>
-    <h5><%= @post.title %></h5> 
-  </h1>
-
-  <div class="small-border">
-    <p id="p-post"><%= @post.content %></p>
-    <br><br>
-  </div>
-
+  <div class="part-1">
   <form action="<%= upvote_post_url(@post) %>" method="post">
     <input
       type="hidden"
       name="authenticity_token"
       value="<%= form_authenticity_token %>">
-    <input type="submit" value="Upvote">
+    <button><i class="fas fa-angle-up"></i></i></button>
   </form>
+  <p id="vote-number"><%= @post.votes %></p>
   <form action="<%= downvote_post_url(@post) %>" method="post">
     <input
       type="hidden"
       name="authenticity_token"
       value="<%= form_authenticity_token %>">
-    <input type="submit" value="Downvote">
+    <button><i class="fas fa-angle-down"></i></i></button>
   </form>
+  </div>
 
-  <br>
+  <div>
+      <ul>
+        <% @post.subs.each do |sub| %>
+          <h5 id="h5-post"> <li><a href="<%= sub_url(sub) %>"><%= "r/" + sub.title %></a></li> </h5>
+          <span>Posted by
+        <%= "u/" + @post.author.username %></span>
+        <% end %>
+      </ul>
+
+      <h1>
+        <h5><%= @post.title %></h5> 
+      </h1>
+
+      <div class="small-border">
+        <p id="p-post"><%= @post.content %></p>
+        <br><br>
+      </div>
+
+      <br>
 
   <h2>Comments</h2>
 
@@ -51,4 +56,9 @@
   </ul>
 
   <a href="<%= edit_post_url(@post) if @post.author == current_user %>">Edit</a>
+    </div>
+
+  
+
+  
 </div>

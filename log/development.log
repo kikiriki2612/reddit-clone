@@ -30667,3 +30667,917 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 127ms (Views: 68.4ms | ActiveRecord: 45.2ms)
 
 
+Started GET "/subs" for ::1 at 2022-01-10 18:31:35 -0800
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (93.0ms)
+  Rendered shared/_main_nav.html.erb (1.6ms)
+Completed 200 OK in 656ms (Views: 611.8ms | ActiveRecord: 20.8ms)
+
+
+Started GET "/subs/1" for ::1 at 2022-01-10 18:31:38 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (8.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (3.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.html.erb:19
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 2], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 3], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (63.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 4], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (28.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 5], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (515.7ms)
+  [1m[36mUser Load (31.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (37.7ms)
+Completed 200 OK in 604ms (Views: 98.1ms | ActiveRecord: 485.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2022-01-10 18:31:40 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (35.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mSub Load (14.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:7
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  ↳ app/models/post.rb:19
+  Rendered comments/_comment.html.erb (0.8ms)
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered posts/show.html.erb within layouts/application (122.7ms)
+  Rendered shared/_main_nav.html.erb (2.6ms)
+Completed 200 OK in 209ms (Views: 77.9ms | ActiveRecord: 103.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:31:47 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (13.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (19.6ms)
+  Rendered shared/_main_nav.html.erb (1.6ms)
+Completed 200 OK in 41ms (Views: 25.0ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/subs/charlos-is-my-best-friend" for ::1 at 2022-01-10 18:31:58 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"charlos-is-my-best-friend"}
+  [1m[36mSub Load (3.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "charlos-is-my-best-friend"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (88.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 4]]
+  ↳ app/views/subs/show.html.erb:19
+  Rendered subs/show.html.erb within layouts/application (91.0ms)
+  [1m[36mUser Load (85.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (89.6ms)
+Completed 200 OK in 225ms (Views: 44.8ms | ActiveRecord: 177.7ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-10 18:32:02 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (5.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:24
+  Rendered posts/_form.html.erb (15.6ms)
+  Rendered posts/new.html.erb within layouts/application (16.8ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 61ms (Views: 27.6ms | ActiveRecord: 30.2ms)
+
+
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  [1m[36mSub Load (0.7ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPostSub Load (1.8ms)[0m  [1m[34mSELECT "post_subs".* FROM "post_subs" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 4]]
+  [1m[36mSub Destroy (47.4ms)[0m  [1m[31mDELETE FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 4]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/subs" for ::1 at 2022-01-10 18:33:48 -0800
+  [1m[35m (26.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (85.2ms)
+  Rendered shared/_main_nav.html.erb (5.1ms)
+Completed 200 OK in 977ms (Views: 883.7ms | ActiveRecord: 31.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:33:50 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (5.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (19.9ms)
+  Rendered shared/_main_nav.html.erb (1.9ms)
+Completed 200 OK in 37ms (Views: 19.6ms | ActiveRecord: 17.3ms)
+
+
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPostSub Load (0.9ms)[0m  [1m[34mSELECT "post_subs".* FROM "post_subs" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 1]]
+  [1m[36mPostSub Destroy (43.6ms)[0m  [1m[31mDELETE FROM "post_subs" WHERE "post_subs"."id" = $1[0m  [["id", 1]]
+  [1m[36mPostSub Destroy (0.4ms)[0m  [1m[31mDELETE FROM "post_subs" WHERE "post_subs"."id" = $1[0m  [["id", 2]]
+  [1m[36mPostSub Destroy (70.5ms)[0m  [1m[31mDELETE FROM "post_subs" WHERE "post_subs"."id" = $1[0m  [["id", 3]]
+  [1m[36mPostSub Destroy (24.5ms)[0m  [1m[31mDELETE FROM "post_subs" WHERE "post_subs"."id" = $1[0m  [["id", 4]]
+  [1m[36mPostSub Destroy (7.7ms)[0m  [1m[31mDELETE FROM "post_subs" WHERE "post_subs"."id" = $1[0m  [["id", 5]]
+  [1m[36mSub Destroy (21.5ms)[0m  [1m[31mDELETE FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 1]]
+  [1m[35m (17.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPostSub Load (1.7ms)[0m  [1m[34mSELECT "post_subs".* FROM "post_subs" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 2]]
+  [1m[36mSub Destroy (2.4ms)[0m  [1m[31mDELETE FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 2]]
+  [1m[35m (62.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/subs" for ::1 at 2022-01-10 18:35:06 -0800
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (80.9ms)
+  Rendered shared/_main_nav.html.erb (3.8ms)
+Completed 200 OK in 449ms (Views: 409.3ms | ActiveRecord: 18.0ms)
+
+
+  [1m[36mSub Load (1.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPostSub Load (0.6ms)[0m  [1m[34mSELECT "post_subs".* FROM "post_subs" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 3]]
+  [1m[36mSub Destroy (1.0ms)[0m  [1m[31mDELETE FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 3]]
+  [1m[35m (46.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/subs" for ::1 at 2022-01-10 18:36:13 -0800
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (6.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (65.1ms)
+  Rendered shared/_main_nav.html.erb (1.4ms)
+Completed 200 OK in 495ms (Views: 413.1ms | ActiveRecord: 45.8ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-10 18:36:20 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.6ms)
+  Rendered subs/new.html.erb within layouts/application (2.8ms)
+  Rendered shared/_main_nav.html.erb (2.0ms)
+Completed 200 OK in 31ms (Views: 22.0ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:37:41 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (183.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (58.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (242.9ms)
+  Rendered shared/_main_nav.html.erb (4.4ms)
+Completed 200 OK in 295ms (Views: 53.3ms | ActiveRecord: 241.2ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-10 18:37:43 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.6ms)
+  Rendered subs/new.html.erb within layouts/application (1.7ms)
+  Rendered shared/_main_nav.html.erb (1.9ms)
+Completed 200 OK in 34ms (Views: 26.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:38:07 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (50.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (113.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (167.5ms)
+  Rendered shared/_main_nav.html.erb (2.1ms)
+Completed 200 OK in 204ms (Views: 39.6ms | ActiveRecord: 163.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:42:02 -0800
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (74.7ms)
+  Rendered shared/_main_nav.html.erb (6.0ms)
+Completed 200 OK in 446ms (Views: 402.0ms | ActiveRecord: 23.4ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-10 18:42:05 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.6ms)
+  Rendered subs/new.html.erb within layouts/application (4.5ms)
+  Rendered shared/_main_nav.html.erb (2.5ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/subs" for ::1 at 2022-01-10 18:42:24 -0800
+Processing by SubsController#create as HTML
+  Parameters: {"authenticity_token"=>"wAmcC5DxByYOjxqzsejeoefXqXoDZd3dVLJBHYddezK2eNnAmrKUWHZ0ZJE5bL2Lv18cMXUixiK/rqjvYCa2Wg==", "sub"=>{"title"=>"CS Career Questions", "description"=>"A subreddit for those with questions about working in the tech industry or in a computer-science-related job.\r\n"}}
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (19.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."id" IS NOT NULL AND "subs"."slug" = $1 LIMIT $2[0m  [["slug", "cs-career-questions"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "CS Career Questions"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Create (90.1ms)[0m  [1m[32mINSERT INTO "subs" ("moderator_id", "title", "description", "created_at", "updated_at", "slug") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["moderator_id", 6], ["title", "CS Career Questions"], ["description", "A subreddit for those with questions about working in the tech industry or in a computer-science-related job.\r\n"], ["created_at", "2022-01-11 02:42:24.990460"], ["updated_at", "2022-01-11 02:42:24.990460"], ["slug", "cs-career-questions"]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/subs_controller.rb:23
+Redirected to http://localhost:3000/subs/cs-career-questions
+Completed 302 Found in 275ms (ActiveRecord: 119.0ms)
+
+
+Started GET "/subs/cs-career-questions" for ::1 at 2022-01-10 18:42:25 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"cs-career-questions"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "cs-career-questions"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (41.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 8]]
+  ↳ app/views/subs/show.html.erb:19
+  Rendered subs/show.html.erb within layouts/application (136.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (5.8ms)
+Completed 200 OK in 168ms (Views: 52.6ms | ActiveRecord: 111.9ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-10 18:42:31 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (5.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:24
+  Rendered posts/_form.html.erb (11.4ms)
+  Rendered posts/new.html.erb within layouts/application (13.0ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 52ms (Views: 38.7ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-10 18:42:35 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (8.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:24
+  Rendered posts/_form.html.erb (10.5ms)
+  Rendered posts/new.html.erb within layouts/application (12.5ms)
+  Rendered shared/_main_nav.html.erb (1.6ms)
+Completed 200 OK in 31ms (Views: 19.0ms | ActiveRecord: 10.0ms)
+
+
+Started POST "/posts" for ::1 at 2022-01-10 18:43:19 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"byFsB781ah36TpDsoBm1DBqc1MVWYWaDjZ3joVqpEWUZUCnMtXb5Y4K17s4ondYmQhRhjiAmfXxmgQpTvdLcDQ==", "post"=>{"title"=>"BS in CS OR Software Engineering?", "content"=>"I’m a working self-taught developer (less than 6 months). Wanting to get my degree essentially to check the box and open up more opps in the future.\r\n\r\nThe title basically says it all. Which degree holds more weight in our field?\r\n\r\nLooking for help/ suggestions based on real life experience you have with hiring/ recruiting.\r\n\r\nMy thoughts are that it doesn’t really matter they are both close enough that if my programming skills were up to par I’d be hired. But idk this to be fact.\r\n\r\nThanks in advance to everyone who takes the time.", "sub_ids"=>["", "8"]}}
+  [1m[36mUser Load (15.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mSub Load (32.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 8]]
+  ↳ app/controllers/posts_controller.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mSub Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 AND "subs"."id" != $2 LIMIT $3[0m  [["title", "CS Career Questions"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPost Create (3.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "BS in CS OR Software Engineering?"], ["content", "I’m a working self-taught developer (less than 6 months). Wanting to get my degree essentially to check the box and open up more opps in the future.\r\n\r\nThe title basically says it all. Which degree holds more weight in our field?\r\n\r\nLooking for help/ suggestions based on real life experience you have with hiring/ recruiting.\r\n\r\nMy thoughts are that it doesn’t really matter they are both close enough that if my programming skills were up to par I’d be hired. But idk this to be fact.\r\n\r\nThanks in advance to everyone who takes the time."], ["user_id", 6], ["created_at", "2022-01-11 02:43:19.422483"], ["updated_at", "2022-01-11 02:43:19.422483"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPostSub Create (0.8ms)[0m  [1m[32mINSERT INTO "post_subs" ("post_id", "sub_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 7], ["sub_id", 8], ["created_at", "2022-01-11 02:43:19.428037"], ["updated_at", "2022-01-11 02:43:19.428037"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:11
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 249ms (ActiveRecord: 63.7ms)
+
+
+Started GET "/posts/7" for ::1 at 2022-01-10 18:43:19 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mSub Load (6.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:7
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered posts/show.html.erb within layouts/application (64.2ms)
+  Rendered shared/_main_nav.html.erb (2.9ms)
+Completed 200 OK in 109ms (Views: 72.5ms | ActiveRecord: 27.7ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:43:24 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (5.2ms)
+  Rendered shared/_main_nav.html.erb (1.5ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-10 18:45:12 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (59.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (1.4ms)
+  Rendered subs/new.html.erb within layouts/application (3.8ms)
+  Rendered shared/_main_nav.html.erb (2.4ms)
+Completed 200 OK in 103ms (Views: 36.1ms | ActiveRecord: 59.5ms)
+
+
+Started POST "/subs" for ::1 at 2022-01-10 18:45:51 -0800
+Processing by SubsController#create as HTML
+  Parameters: {"authenticity_token"=>"g5NZE9fYU4fGSEexNZI4q5+ciTd3J5jek3coHyxfpBH14hzY3ZvA+b6zOZO9FluBxxQ8fAFggyF4a8HtyyRpeQ==", "sub"=>{"title"=>"keto", "description"=>"The Ketogenic Diet is a low carbohydrate method of eating. /r/keto is place to share thoughts, ideas, benefits, and experiences around eating within a Ketogenic lifestyle. Helping people with diabetes, epilepsy, autoimmune disorders, acid reflux, inflammation, hormonal imbalances, and a number of other issues, every day.\r\n"}}
+  [1m[36mUser Load (44.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (289.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Exists (47.1ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."id" IS NOT NULL AND "subs"."slug" = $1 LIMIT $2[0m  [["slug", "keto"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Exists (105.9ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "keto"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Create (128.9ms)[0m  [1m[32mINSERT INTO "subs" ("moderator_id", "title", "description", "created_at", "updated_at", "slug") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["moderator_id", 6], ["title", "keto"], ["description", "The Ketogenic Diet is a low carbohydrate method of eating. /r/keto is place to share thoughts, ideas, benefits, and experiences around eating within a Ketogenic lifestyle. Helping people with diabetes, epilepsy, autoimmune disorders, acid reflux, inflammation, hormonal imbalances, and a number of other issues, every day.\r\n"], ["created_at", "2022-01-11 02:45:53.193220"], ["updated_at", "2022-01-11 02:45:53.193220"], ["slug", "keto"]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[35m (143.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/subs_controller.rb:23
+Redirected to http://localhost:3000/subs/keto
+Completed 302 Found in 824ms (ActiveRecord: 758.5ms)
+
+
+Started GET "/subs/keto" for ::1 at 2022-01-10 18:45:53 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"keto"}
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "keto"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (43.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 9]]
+  ↳ app/views/subs/show.html.erb:19
+  Rendered subs/show.html.erb within layouts/application (66.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (9.0ms)
+Completed 200 OK in 131ms (Views: 81.2ms | ActiveRecord: 44.6ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-10 18:46:06 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (29.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:24
+  Rendered posts/_form.html.erb (39.8ms)
+  Rendered posts/new.html.erb within layouts/application (41.0ms)
+  Rendered shared/_main_nav.html.erb (3.2ms)
+Completed 200 OK in 86ms (Views: 45.2ms | ActiveRecord: 37.1ms)
+
+
+Started POST "/posts" for ::1 at 2022-01-10 18:46:37 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"f7LYk8IWykP/l1ZedGUAwQrik/AH4hKypVOQJMdd0QMJw51YyFVZPYdsKHz84WPrUmomu3GlCU1OT3nWICYcaw==", "post"=>{"title"=>"Let's talk coffee.", "content"=>"I'm new to Keto and looking for tricks. My biggest problem is my morning coffee. I'm the type of girl that goes to Starbucks like everyday before work. And I typically get the sweetest thing I can because I hate the taste of bitter, but I need coffee. What keto solutions do people do with their coffee to make it taste better?\r\n\r\n", "sub_ids"=>["", "9"]}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mSub Load (3.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/posts_controller.rb:10
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mSub Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 AND "subs"."id" != $2 LIMIT $3[0m  [["title", "keto"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mUser Load (192.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPost Create (298.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Let's talk coffee."], ["content", "I'm new to Keto and looking for tricks. My biggest problem is my morning coffee. I'm the type of girl that goes to Starbucks like everyday before work. And I typically get the sweetest thing I can because I hate the taste of bitter, but I need coffee. What keto solutions do people do with their coffee to make it taste better?\r\n\r\n"], ["user_id", 6], ["created_at", "2022-01-11 02:46:37.867121"], ["updated_at", "2022-01-11 02:46:37.867121"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPostSub Create (0.5ms)[0m  [1m[32mINSERT INTO "post_subs" ("post_id", "sub_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 8], ["sub_id", 9], ["created_at", "2022-01-11 02:46:38.167033"], ["updated_at", "2022-01-11 02:46:38.167033"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[35m (41.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:11
+Redirected to http://localhost:3000/posts/8
+Completed 302 Found in 561ms (ActiveRecord: 539.0ms)
+
+
+Started GET "/posts/8" for ::1 at 2022-01-10 18:46:38 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (2.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mSub Load (3.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mUser Load (49.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:7
+  [1m[36mComment Load (11.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered posts/show.html.erb within layouts/application (100.4ms)
+  Rendered shared/_main_nav.html.erb (2.5ms)
+Completed 200 OK in 140ms (Views: 41.7ms | ActiveRecord: 92.8ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:46:42 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (18.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (22.6ms)
+  Rendered shared/_main_nav.html.erb (2.9ms)
+Completed 200 OK in 108ms (Views: 87.9ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-10 18:46:49 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.8ms)
+  Rendered subs/new.html.erb within layouts/application (2.3ms)
+  Rendered shared/_main_nav.html.erb (2.2ms)
+Completed 200 OK in 30ms (Views: 19.4ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/subs" for ::1 at 2022-01-10 18:47:47 -0800
+Processing by SubsController#create as HTML
+  Parameters: {"authenticity_token"=>"JXTqwZvsBaFXBYgPnCSyVHtPXa8QtT+j8O+Dj++up4FTBa8Kka+W3y/+9i0UoNF+I8fo5GbyJFwb82p9CNVq6Q==", "sub"=>{"title"=>"digitalnomad", "description"=>"Digital Nomads are individuals that leverage technology in order to work remotely and live an independent and nomadic lifestyle.\r\n"}}
+  [1m[36mUser Load (347.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (15.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Exists (17.5ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."id" IS NOT NULL AND "subs"."slug" = $1 LIMIT $2[0m  [["slug", "digitalnomad"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Exists (3.8ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "digitalnomad"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Create (3.1ms)[0m  [1m[32mINSERT INTO "subs" ("moderator_id", "title", "description", "created_at", "updated_at", "slug") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["moderator_id", 6], ["title", "digitalnomad"], ["description", "Digital Nomads are individuals that leverage technology in order to work remotely and live an independent and nomadic lifestyle.\r\n"], ["created_at", "2022-01-11 02:47:48.180410"], ["updated_at", "2022-01-11 02:47:48.180410"], ["slug", "digitalnomad"]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/subs_controller.rb:23
+Redirected to http://localhost:3000/subs/digitalnomad
+Completed 302 Found in 421ms (ActiveRecord: 392.0ms)
+
+
+Started GET "/subs/digitalnomad" for ::1 at 2022-01-10 18:47:48 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"digitalnomad"}
+  [1m[36mSub Load (8.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "digitalnomad"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (47.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 10]]
+  ↳ app/views/subs/show.html.erb:19
+  Rendered subs/show.html.erb within layouts/application (52.0ms)
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (10.8ms)
+Completed 200 OK in 254ms (Views: 187.5ms | ActiveRecord: 62.2ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-10 18:48:03 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (73.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:24
+  Rendered posts/_form.html.erb (78.7ms)
+  Rendered posts/new.html.erb within layouts/application (81.3ms)
+  Rendered shared/_main_nav.html.erb (2.7ms)
+Completed 200 OK in 117ms (Views: 30.8ms | ActiveRecord: 77.5ms)
+
+
+Started POST "/posts" for ::1 at 2022-01-10 18:48:16 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"U17nSNexxMsaCARpDyPYao2r0J4lt8Uy0GNtqm7tpVMlL6KD3fJXtWLzekuHp7tA1SNl1VPw3s07f4RYiZZoOw==", "post"=>{"title"=>"What do most of you do for jobs?", "content"=>"Hello, this is my first time posting on this subreddit so nice to meet you guys:)\r\n\r\nI am very curious as what most of you do for jobs. I am kind of stuck in my life and have no clue where to go career wise. I am not looking for advice on what I should do though, I am just wondering what most of you do that allows you to work completely remotely.\r\n\r\nI love to travel and my current career is not anything I can ever do digitally as it is hands on. I am currently 22 and as I have been working in my current career for a while I have realized that my true desire is to live a digital nomad lifestyle.\r\n\r\nSo, what do most of you do that allows you to do this?\r\n\r\nThanks so much have a great day!", "sub_ids"=>["", "10"]}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mSub Load (4.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/posts_controller.rb:10
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mSub Exists (81.1ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 AND "subs"."id" != $2 LIMIT $3[0m  [["title", "digitalnomad"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPost Create (1.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "What do most of you do for jobs?"], ["content", "Hello, this is my first time posting on this subreddit so nice to meet you guys:)\r\n\r\nI am very curious as what most of you do for jobs. I am kind of stuck in my life and have no clue where to go career wise. I am not looking for advice on what I should do though, I am just wondering what most of you do that allows you to work completely remotely.\r\n\r\nI love to travel and my current career is not anything I can ever do digitally as it is hands on. I am currently 22 and as I have been working in my current career for a while I have realized that my true desire is to live a digital nomad lifestyle.\r\n\r\nSo, what do most of you do that allows you to do this?\r\n\r\nThanks so much have a great day!"], ["user_id", 6], ["created_at", "2022-01-11 02:48:16.789123"], ["updated_at", "2022-01-11 02:48:16.789123"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPostSub Create (0.4ms)[0m  [1m[32mINSERT INTO "post_subs" ("post_id", "sub_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 9], ["sub_id", 10], ["created_at", "2022-01-11 02:48:16.792533"], ["updated_at", "2022-01-11 02:48:16.792533"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:11
+Redirected to http://localhost:3000/posts/9
+Completed 302 Found in 108ms (ActiveRecord: 92.6ms)
+
+
+Started GET "/posts/9" for ::1 at 2022-01-10 18:48:16 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mSub Load (0.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:7
+  [1m[36mComment Load (125.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (79.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered posts/show.html.erb within layouts/application (215.0ms)
+  Rendered shared/_main_nav.html.erb (2.6ms)
+Completed 200 OK in 374ms (Views: 164.2ms | ActiveRecord: 206.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:48:20 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (15.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (19.7ms)
+  Rendered shared/_main_nav.html.erb (5.9ms)
+Completed 200 OK in 49ms (Views: 31.0ms | ActiveRecord: 16.8ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-10 18:48:23 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (4.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (48.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:19
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (167.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (4.5ms)
+Completed 200 OK in 195ms (Views: 130.3ms | ActiveRecord: 62.9ms)
+
+
+Started GET "/posts/6" for ::1 at 2022-01-10 18:48:28 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (45.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mSub Load (1.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:7
+  [1m[36mComment Load (3.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered posts/show.html.erb within layouts/application (14.8ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 91ms (Views: 34.7ms | ActiveRecord: 52.0ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:48:59 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (3.3ms)
+  Rendered shared/_main_nav.html.erb (2.4ms)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-10 18:49:01 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (4.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:19
+  [1m[35m (11.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (18.0ms)
+  [1m[36mUser Load (33.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (36.2ms)
+Completed 200 OK in 89ms (Views: 31.0ms | ActiveRecord: 49.9ms)
+
+
+Started GET "/posts/6" for ::1 at 2022-01-10 18:49:17 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mSub Load (0.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:7
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered posts/show.html.erb within layouts/application (7.9ms)
+  Rendered shared/_main_nav.html.erb (2.5ms)
+Completed 200 OK in 31ms (Views: 25.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:49:29 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (19.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (39.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (61.8ms)
+  Rendered shared/_main_nav.html.erb (3.8ms)
+Completed 200 OK in 82ms (Views: 22.3ms | ActiveRecord: 58.8ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-10 18:49:31 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (20.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.7ms)
+  Rendered subs/new.html.erb within layouts/application (5.7ms)
+  Rendered shared/_main_nav.html.erb (3.6ms)
+Completed 200 OK in 53ms (Views: 29.6ms | ActiveRecord: 20.4ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-10 18:50:04 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.8ms)
+  Rendered subs/new.html.erb within layouts/application (1.6ms)
+  Rendered shared/_main_nav.html.erb (1.5ms)
+Completed 200 OK in 34ms (Views: 28.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-10 18:50:35 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.8ms)
+  Rendered subs/new.html.erb within layouts/application (2.1ms)
+  Rendered shared/_main_nav.html.erb (2.6ms)
+Completed 200 OK in 35ms (Views: 29.2ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/subs" for ::1 at 2022-01-10 18:51:06 -0800
+Processing by SubsController#create as HTML
+  Parameters: {"authenticity_token"=>"3/KHMy3asSQya/CGHxzRoQqdeiYiolNhh0zXL0Ab7R+pg8L4J5kiWkqQjqSXmLKLUhXPbVTlSJ5sUD7dp2Agdw==", "sub"=>{"title"=>"dogs", "description"=>"/r/dogs is a place for dog owners of all levels of knowledge, skill, and experience to discuss all topics related to dogs. This subreddit is a great starting point for a lot of information, but you should always verify and expand upon what you've read before putting it to use in your daily life. Advice on this forum is not a substitute for advice from a trained and credentialed professional.\r\n"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (70.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."id" IS NOT NULL AND "subs"."slug" = $1 LIMIT $2[0m  [["slug", "dogs"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "dogs"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[36mSub Create (4.5ms)[0m  [1m[32mINSERT INTO "subs" ("moderator_id", "title", "description", "created_at", "updated_at", "slug") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["moderator_id", 6], ["title", "dogs"], ["description", "/r/dogs is a place for dog owners of all levels of knowledge, skill, and experience to discuss all topics related to dogs. This subreddit is a great starting point for a lot of information, but you should always verify and expand upon what you've read before putting it to use in your daily life. Advice on this forum is not a substitute for advice from a trained and credentialed professional.\r\n"], ["created_at", "2022-01-11 02:51:06.100055"], ["updated_at", "2022-01-11 02:51:06.100055"], ["slug", "dogs"]]
+  ↳ app/controllers/subs_controller.rb:23
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/subs_controller.rb:23
+Redirected to http://localhost:3000/subs/dogs
+Completed 302 Found in 105ms (ActiveRecord: 85.1ms)
+
+
+Started GET "/subs/dogs" for ::1 at 2022-01-10 18:51:06 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"dogs"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "dogs"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (46.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 11]]
+  ↳ app/views/subs/show.html.erb:19
+  Rendered subs/show.html.erb within layouts/application (50.8ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (4.8ms)
+Completed 200 OK in 79ms (Views: 27.5ms | ActiveRecord: 48.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:51:11 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (13.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (11.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (29.1ms)
+  Rendered shared/_main_nav.html.erb (1.9ms)
+Completed 200 OK in 51ms (Views: 25.8ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-10 18:51:12 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:19
+  [1m[35m (41.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (44.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (4.2ms)
+Completed 200 OK in 71ms (Views: 25.8ms | ActiveRecord: 42.5ms)
+
+
+Started GET "/posts/6" for ::1 at 2022-01-10 18:51:13 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (3.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mSub Load (50.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:7
+  [1m[36mComment Load (5.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered posts/show.html.erb within layouts/application (68.2ms)
+  Rendered shared/_main_nav.html.erb (2.1ms)
+Completed 200 OK in 94ms (Views: 25.8ms | ActiveRecord: 65.8ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-10 18:51:16 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (1.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:19
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (2.2ms)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-10 18:51:17 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (5.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:24
+  Rendered posts/_form.html.erb (7.5ms)
+  Rendered posts/new.html.erb within layouts/application (9.7ms)
+  Rendered shared/_main_nav.html.erb (35.8ms)
+Completed 200 OK in 81ms (Views: 63.5ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:51:21 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (9.9ms)
+  Rendered shared/_main_nav.html.erb (1.4ms)
+Completed 200 OK in 35ms (Views: 32.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-10 18:51:22 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (16.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (2.1ms)
+  Rendered subs/new.html.erb within layouts/application (5.2ms)
+  Rendered shared/_main_nav.html.erb (3.6ms)
+Completed 200 OK in 52ms (Views: 33.4ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:51:27 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (12.5ms)
+  Rendered shared/_main_nav.html.erb (2.8ms)
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-10 18:54:40 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.9ms)
+  Rendered subs/new.html.erb within layouts/application (3.9ms)
+  Rendered shared/_main_nav.html.erb (2.1ms)
+Completed 200 OK in 57ms (Views: 48.1ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-10 18:54:45 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (14.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (8.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (26.2ms)
+  Rendered shared/_main_nav.html.erb (1.9ms)
+Completed 200 OK in 42ms (Views: 18.2ms | ActiveRecord: 23.4ms)
+
+
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPostSub Load (0.7ms)[0m  [1m[34mSELECT "post_subs".* FROM "post_subs" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 8]]
+  [1m[36mPostSub Destroy (0.5ms)[0m  [1m[31mDELETE FROM "post_subs" WHERE "post_subs"."id" = $1[0m  [["id", 7]]
+  [1m[36mSub Destroy (1.8ms)[0m  [1m[31mDELETE FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 8]]
+  [1m[35m (44.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/subs" for ::1 at 2022-01-10 18:56:02 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2BSu9QuLjTlCW-1ZMDc5Hw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (45.2ms)
+  Rendered shared/_main_nav.html.erb (3.0ms)
+Completed 200 OK in 373ms (Views: 313.9ms | ActiveRecord: 22.3ms)
+
+

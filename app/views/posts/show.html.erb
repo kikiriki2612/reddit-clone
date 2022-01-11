@@ -1,3 +1,5 @@
+<div class="main-container">
+
 <div class="container-post">
 
 
@@ -57,8 +59,12 @@
 
   <a href="<%= edit_post_url(@post) if @post.author == current_user %>">Edit</a>
     </div>
+</div>
 
-  
 
-  
+  <div class="box-description">
+    <h6> About Community </h6>
+    <p id="p-description"><%= @sub.description %></p>
+  </div>
+
 </div>

@@ -239,10 +239,10 @@ h6 {
   margin: 0 auto;
   background-color: #f8f9fa;
   padding: 10px;
-  margin-top: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-right: 25px;
 }
 
 #h5-post {
@@ -268,5 +268,14 @@ a:hover {
 #vote-number {
   font-size: 12px;
   font-weight: 500;
+}
+
+.main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 25px;
 }
 /*# sourceMappingURL=application.css.map */

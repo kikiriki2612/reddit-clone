@@ -1,14 +1,19 @@
-<div class="border">
+<div class="container-post">
+
+  <ul>
+    <% @post.subs.each do |sub| %>
+      <h5 id="h5-post"> <li><a href="<%= sub_url(sub) %>"><%= "r/" + sub.title %></a></li> </h5>
+      <span>Posted by
+    <%= "u/" + @post.author.username %></span>
+    <% end %>
+  </ul>
+
   <h1>
-    (<%= @post.votes %>)
-    <a href="<%= post_url(@post) %>"><%= @post.title %></a> by
-    <%= @post.author.username %>
+    <h5><%= @post.title %></h5> 
   </h1>
 
   <div class="small-border">
-    <b>Content:</b>
-
-    <pre><%= @post.content %></pre>
+    <p id="p-post"><%= @post.content %></p>
     <br><br>
   </div>
 
@@ -28,12 +33,6 @@
   </form>
 
   <br>
-  <b>Subs</b>
-  <ul>
-    <% @post.subs.each do |sub| %>
-      <li><a href="<%= sub_url(sub) %>"><%= sub.title %></a></li>
-    <% end %>
-  </ul>
 
   <h2>Comments</h2>
 

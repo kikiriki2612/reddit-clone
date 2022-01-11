@@ -240,6 +240,9 @@ h6 {
   background-color: #f8f9fa;
   padding: 10px;
   margin-top: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #h5-post {
@@ -256,5 +259,14 @@ a:hover {
   font-weight: 400;
   line-height: 21px;
   word-break: break-word;
+}
+
+.part-1 {
+  margin-right: 20px;
+}
+
+#vote-number {
+  font-size: 12px;
+  font-weight: 500;
 }
 /*# sourceMappingURL=application.css.map */

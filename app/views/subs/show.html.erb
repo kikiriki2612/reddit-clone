@@ -1,34 +1,37 @@
+
+
 <div class="show-sub">
+
+  
+  <div class="container-post1">
+
   <h1 id="h1-sub">
-    <%= @sub.title %>
-  </h1>
+        <%= "r/" + @sub.title %>
+        <p id="p-posts"> Posts </p>
+      </h1>
 
-
-  <%# <b>Description</b> %>
-  <div class="container-1">
-
-    <div class="box-posts">
-      
-      <div class="box-0">
+      <div class="box-4">
         <a href="/posts/new">
-          <input type="text" class="form-control" placeholder="Create Post" aria-describedby="basic-addon1 ">
+          <input type="text" class="form-control create-post-subs" placeholder="Create Post" aria-describedby="basic-addon1 ">
         </a>
       </div>
 
       <ul>
         <% @sub.posts.each do |post| %>
-        <div class="box-1">
-          <li>(<%= post.votes %>) <a href="<%= post_url(post) %>"><%= post.title %></a></li>
+        <div class="box-3">
+          <li id="sub-title">(<%= post.votes %>) <a href="<%= post_url(post) %>"><%= post.title %></a></li>
+          <p id="p-content"> <%= post.content %> </p>
         </div>
         <% end %>
       </ul>
-    </div>
-
-    <div class="box-description">
-      <h6> About Community </h6>
-      <p id="p-description"><%= @sub.description %></p>
-    </div>
 
   </div>
+    
+
+  <div class="box-description">
+    <h6> About Community </h6>
+    <p id="p-description"><%= @sub.description %></p>
+  </div>
+
   
 </div>

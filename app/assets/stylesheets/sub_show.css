@@ -1,18 +1,10 @@
 .show-sub {
-  width: 65%;
-  margin: 0 auto;
-}
-
-.container-1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.box-posts {
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 25px;
 }
 
 .box-description {
@@ -21,9 +13,10 @@
           flex: 1;
   background-color: #f8f9fa;
   border: 1px solid #ccc;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 35px;
 }
 
 h6 {
@@ -41,8 +34,56 @@ h6 {
   font-weight: 700;
   line-height: 32px;
   padding: 0 2px 4px 0;
-  width: 100%;
   margin-left: 50px;
   margin-top: 13px;
+  width: 100%;
+}
+
+.container-post1 {
+  width: 65%;
+  margin: 0 auto;
+  padding: 10px;
+  margin-right: 25px;
+}
+
+.box-3 {
+  border: 1px solid #ccc;
+  background: #f8f9fa;
+  margin-top: 12px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  margin-left: 50px;
+  border-radius: 5px;
+  padding: 9px;
+}
+
+.box-4 {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 38px;
+  margin-top: 20px;
+  padding: 0 16px;
+  margin-left: 35px;
+}
+
+#sub-title {
+  font-size: 15pt;
+  font-weight: 500;
+}
+
+#p-content {
+  font-size: 14px;
+}
+
+#p-posts {
+  border-bottom: 3px solid #ffb000;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.create-post-subs {
+  width: 96%;
 }
 /*# sourceMappingURL=sub_show.css.map */

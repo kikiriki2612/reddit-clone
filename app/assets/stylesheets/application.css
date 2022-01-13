@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -170,6 +171,21 @@ label {
   color: #898989;
 }
 
+.box-checkbox {
+  margin-left: 15px;
+}
+
+input[type="checkbox"]:checked {
+  content: '✕';
+  top: .525em;
+  left: .18em;
+  font-size: 1.375em;
+  color: #CB22ED;
+  line-height: 0;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
 .new-create {
   width: 54%;
   margin: 0 auto;
@@ -318,5 +334,16 @@ a:hover {
   width: 75%;
   margin: 0 auto;
   margin-top: 25px;
+}
+
+.box-description2 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 /*# sourceMappingURL=application.css.map */

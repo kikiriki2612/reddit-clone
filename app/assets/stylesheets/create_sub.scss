@@ -34,9 +34,19 @@ label {
 
 #hr-sub {
     color: #898989;
-    // width:90%;
-    // margin:0 auto;
 }
 
-// input[name="sub[title]"] {
-// }
+.box-checkbox {
+    margin-left: 15px;
+}
+
+input[type="checkbox"]:checked {
+    content: '✕';
+    top: .525em;
+    left: .18em;
+    font-size: 1.375em;
+    color: #CB22ED;
+    line-height: 0;
+    -webkit-transition: all .2s;
+        transition: all .2s;
+  }

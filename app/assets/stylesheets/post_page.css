@@ -42,4 +42,15 @@ a:hover {
   margin: 0 auto;
   margin-top: 25px;
 }
+
+.box-description2 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
 /*# sourceMappingURL=post_page.css.map */

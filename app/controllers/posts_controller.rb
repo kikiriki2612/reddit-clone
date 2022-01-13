@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   
     def show
       @post = Post.find(params[:id])
-      @sub = Sub.find(params[:id])
+      @sub = Sub.find_by(title: @post.subs.first.slug)
     end
   
     def edit

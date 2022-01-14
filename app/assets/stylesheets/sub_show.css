@@ -17,6 +17,8 @@
   height: -moz-fit-content;
   height: fit-content;
   margin-top: 35px;
+  border-radius: 3px;
+  padding-bottom: 25px;
 }
 
 h6 {

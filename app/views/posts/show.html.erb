@@ -22,6 +22,7 @@
   </div>
 
   <div>
+  <div class="post-content">
       <ul>
         <% @post.subs.each do |sub| %>
           <h5 id="h5-post"> <li><a href="<%= sub_url(sub) %>"><%= "r/" + sub.title %></a></li> </h5>
@@ -39,7 +40,11 @@
         <br><br>
       </div>
 
+      <a class="a-edit" href="<%= edit_post_url(@post) if @post.author == current_user %>">Edit this post</a>
+    </div>
       <br>
+      <hr>
+
 
   <i class="fal fa-comment-alt"></i>
   <p> Comments </p>
@@ -50,7 +55,7 @@
   <ul>
     <% comments_by_parent = @post.comments_by_parent %>
     <% comments_by_parent[nil].each do |top_level_comment| %>
-      <li>
+      <li class="li-comments"> <span><%= "u/" + @post.author.username %></span>
         <%= render("comments/comment",
                    comment: top_level_comment,
                    comments_by_parent: comments_by_parent) %>
@@ -58,15 +63,16 @@
     <% end %>
   </ul>
 
-  <a href="<%= edit_post_url(@post) if @post.author == current_user %>">Edit</a>
+  
     </div>
 </div>
-
 
   <div class="box-description2">
     <h6> About Community </h6>
     <p id="p-description"><%= @sub.description %></p>
   </div>
+
+
 
 
 </div>

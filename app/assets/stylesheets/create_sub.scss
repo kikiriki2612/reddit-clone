@@ -40,13 +40,4 @@ label {
     margin-left: 15px;
 }
 
-input[type="checkbox"]:checked {
-    content: '✕';
-    top: .525em;
-    left: .18em;
-    font-size: 1.375em;
-    color: #CB22ED;
-    line-height: 0;
-    -webkit-transition: all .2s;
-        transition: all .2s;
-  }
+

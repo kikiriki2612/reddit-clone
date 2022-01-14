@@ -7,6 +7,7 @@
   display: -ms-flexbox;
   display: flex;
   margin-right: 25px;
+  border-radius: 3px;
 }
 
 #h5-post {
@@ -52,5 +53,24 @@ a:hover {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  border-radius: 3px;
+  padding-bottom: 25px;
+}
+
+.a-edit {
+  float: right;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.li-comments {
+  border-left: 3px solid #ccc;
+  padding: 15px;
+  margin-bottom: 22px;
+}
+
+.post-content {
+  padding-right: 22px;
 }
 /*# sourceMappingURL=post_page.css.map */

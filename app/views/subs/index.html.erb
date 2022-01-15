@@ -1,16 +1,16 @@
+<div class="index-page">
+<div class="container-post1">
 
-<div class="container box-container">
-
-  <div class="box-0">
+  <div class="box-4">
     <a href="/subs/new">
-    <input type="text" class="form-control" placeholder="Create Sub" aria-describedby="basic-addon1 ">
+      <input type="text" class="form-control create-post-subs" placeholder="Create Post" aria-describedby="basic-addon1 ">
     </a>
   </div>
 
   <ul>
   <% @subs.each do |sub| %>
   
-    <div class="box-1">
+    <div class="box-3">
       <h5> <li><a href="<%= sub_url(sub) %>"><%= "r/" + sub.title %></a><br></li> </h5>
       <span><%= " Posted by u/" + current_user.username %></span>
       <p> <%= sub.description %> </p>
@@ -18,5 +18,17 @@
   
   <% end %>
   </ul>
+</div>
+
+<div class="box-description123">
+  <h6 id="h6-reddit-rules"><%= image_tag("reddit-rules.png", :alt => "reddit-rules", style: 'height:51px;width:62px;display:inline;') %> Posting to Reddit</h6> 
+  <ol>
+    <li> Remember the human </li>
+    <li> Behave like you would in real life </li>
+    <li> Look for the original source of content </li>
+    <li> Search for duplicates before posting </li>
+    <li> Read the community’s rules </li>
+
+  </ol>
 </div>
 

@@ -75,6 +75,18 @@ body {
   color: #1C1C1C;
 }
 
+.index-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.something {
+  width: 89%;
+}
+
 .box-0 {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -115,6 +127,31 @@ span {
 
 h5 {
   display: inline-block;
+}
+
+#h6-reddit-rules {
+  background-color: white;
+  color: black;
+}
+
+ol li {
+  border-bottom: 1px solid #edeff1;
+  padding: 1px;
+  font-size: 14px;
+}
+
+.box-description123 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 35px;
+  border-radius: 3px;
+  padding-bottom: 25px;
 }
 
 .my-own-color {

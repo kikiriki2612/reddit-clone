@@ -1,3 +1,15 @@
+.index-page {
+    display: flex;
+    width: 75%;
+    margin: 0 auto;
+
+}
+
+.something {
+    width: 89%;
+}
+
+
 .box-0 {
     flex-grow: 1;
     height: 38px;
@@ -40,3 +52,24 @@ h5 {
     display: inline-block;
 }
 
+
+#h6-reddit-rules {
+    background-color: white;
+    color: black;
+}
+
+ol li {
+    border-bottom: 1px solid #edeff1;
+    padding: 1px;
+    font-size: 14px;
+}
+
+.box-description123 {
+    flex: 1;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    height: fit-content;
+    margin-top: 35px;
+    border-radius: 3px;
+    padding-bottom: 25px;
+}

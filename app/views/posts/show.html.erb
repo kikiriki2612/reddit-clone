@@ -40,17 +40,16 @@
         <br><br>
       </div>
 
-      <a class="a-edit" href="<%= edit_post_url(@post) if @post.author == current_user %>">Edit this post</a>
     </div>
       <br>
-      <hr>
+     
 
 
   <i class="fal fa-comment-alt"></i>
-  <p> Comments </p>
+  <span> Comments </span>       <a class="a-edit" href="<%= edit_post_url(@post) if @post.author == current_user %>">Edit this post</a>
 
-  <a href="<%= new_post_comment_url(@post.id) %>">Comment on this post!</a>
-  <br><br>
+   <hr>
+  <br>
 
   <ul>
     <% comments_by_parent = @post.comments_by_parent %>
@@ -62,6 +61,8 @@
       </li>
     <% end %>
   </ul>
+
+  <a href="<%= new_post_comment_url(@post.id) %>">Comment on this post!</a>
 
   
     </div>

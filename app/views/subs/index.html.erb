@@ -10,11 +10,12 @@
   <ul>
   <% @subs.each do |sub| %>
   
-    <div class="box-3">
-      <h5> <li><a href="<%= sub_url(sub) %>"><%= "r/" + sub.title %></a><br></li> </h5>
+    <a href="<%= sub_url(sub) %>"><div class="box-3">
+      <h5> <li><%= "r/" + sub.title %><br></li> </h5>
       <span><%= " Posted by u/" + current_user.username %></span>
       <p> <%= sub.description %> </p>
     </div>
+    </a>
   
   <% end %>
   </ul>

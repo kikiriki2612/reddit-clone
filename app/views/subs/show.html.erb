@@ -18,10 +18,11 @@
  
       <ul>
         <% @sub.posts.each do |post| %>
-        <div class="box-3">
-          <li id="sub-title">(<%= post.votes %>) <a href="<%= post_url(post) %>"><%= post.title %></a></li>
+        <a href="<%= post_url(post) %>"><div class="box-3">
+          <li id="sub-title">(<%= post.votes %>)<%= post.title %></li>
           <p id="p-content"> <%= post.content %> </p>
         </div>
+        </a>
         <% end %>
       </ul>
 

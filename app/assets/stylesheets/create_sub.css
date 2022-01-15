@@ -39,4 +39,8 @@ label {
 .box-checkbox {
   margin-left: 15px;
 }
+
+.form-control {
+  width: inherit;
+}
 /*# sourceMappingURL=create_sub.css.map */

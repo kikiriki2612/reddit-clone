@@ -1,9 +1,10 @@
 .create-sub-box {
   background-color: #f8f9fa;
-  width: 65%;
+  width: 55%;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 8px;
+  padding-top: 22px;
 }
 
 label {

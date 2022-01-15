@@ -3,7 +3,10 @@
 }
 
 .nav-link {
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    white-space: nowrap;
 }
 .nav-item:hover {
     background-color: #dae0e6;
@@ -12,6 +15,11 @@
 .nav-link:hover {
     color: #1a1a1b;
 }
+
+.navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+ }
 
 // @media (max-width: 229px) {
 //     .navbar-brand {

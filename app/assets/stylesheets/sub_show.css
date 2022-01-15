@@ -74,6 +74,10 @@ h6 {
   font-weight: 500;
 }
 
+#sub-title:hover {
+  text-decoration: underline;
+}
+
 #p-content {
   font-size: 14px;
 }

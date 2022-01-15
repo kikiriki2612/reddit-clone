@@ -14,11 +14,16 @@
 
 .nav-link:hover {
     color: #1a1a1b;
+    text-decoration: none;
 }
 
 .navbar {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+ }
+
+ .sign-in-link {
+     font-size: 12px;
  }
 
 // @media (max-width: 229px) {

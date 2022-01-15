@@ -52,6 +52,10 @@ h5 {
   display: inline-block;
 }
 
+h5:hover {
+  text-decoration: underline;
+}
+
 #h6-reddit-rules {
   background-color: white;
   color: black;
@@ -75,5 +79,10 @@ ol li {
   margin-top: 35px;
   border-radius: 3px;
   padding-bottom: 25px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
 }
 /*# sourceMappingURL=main_content_index.css.map */

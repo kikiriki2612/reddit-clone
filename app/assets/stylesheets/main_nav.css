@@ -26,4 +26,19 @@
 .sign-in-link {
   font-size: 12px;
 }
+
+.btn-primary2 {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.btn-outline-primary2 {
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 9px;
+}
+
+.nav-item2:hover {
+  background-color: white;
+}
 /*# sourceMappingURL=main_nav.css.map */

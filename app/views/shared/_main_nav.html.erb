@@ -16,7 +16,7 @@
       <% if current_user %>
         
        <li class="nav-item">
-          <a class="nav-link active my-own-color" aria-current="page" href="/posts/new" ><%= "+" %></a>
+          <a class="nav-link active my-own-color" aria-current="page" href="/posts/new" ><i class="fal fa-plus"></i></a>
         </li>
 
         <li class="nav-item">
@@ -29,8 +29,10 @@
 
         <% else %>
 
-        <li class="nav-item">
-            <a class="nav-link active my-own-color" aria-current="page"><%= link_to "Sign in!", new_session_url %></a>
+        <li class="nav-item nav-item2">
+            <a class="btn btn-primary btn-primary2" href="/users/new" role="button">Sign Up</a>
+            <a class="btn btn-outline-primary btn-outline-primary2" href="/session/new" role="button">Log In</a>
+            
         </li>
 
       <% end %> 

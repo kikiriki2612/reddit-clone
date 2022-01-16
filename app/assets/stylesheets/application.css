@@ -285,6 +285,18 @@ label {
   font-weight: 500;
 }
 
+.blue-container {
+  background-color: #33a8ff;
+  height: 90px;
+}
+
+.white-container {
+  background-color: white;
+  height: 90px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
 .show-sub {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -323,7 +335,7 @@ h6 {
   font-weight: 700;
   line-height: 32px;
   padding: 0 2px 4px 0;
-  margin-left: 50px;
+  margin-left: 242px;
   margin-top: 13px;
   width: 100%;
 }

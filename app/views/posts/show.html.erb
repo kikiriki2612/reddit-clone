@@ -3,77 +3,84 @@
 <div class="container-post">
 
 
-  <div class="part-1">
-  <form action="<%= upvote_post_url(@post) %>" method="post">
-    <input
-      type="hidden"
-      name="authenticity_token"
-      value="<%= form_authenticity_token %>">
-    <button><i class="fas fa-angle-up"></i></i></button>
-  </form>
-  <p id="vote-number"><%= @post.votes %></p>
-  <form action="<%= downvote_post_url(@post) %>" method="post">
-    <input
-      type="hidden"
-      name="authenticity_token"
-      value="<%= form_authenticity_token %>">
-    <button><i class="fas fa-angle-down"></i></i></button>
-  </form>
-  </div>
+    <div class="part-1">
+      <form action="<%= upvote_post_url(@post) %>" method="post">
+        <input
+          type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>">
+        <button><i class="fas fa-angle-up"></i></i></button>
+      </form>
+      <p id="vote-number"><%= @post.votes %></p>
+      <form action="<%= downvote_post_url(@post) %>" method="post">
+        <input
+          type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>">
+        <button><i class="fas fa-angle-down"></i></i></button>
+      </form>
+    </div>
 
   <div>
-  <div class="post-content">
-      <ul>
-        <% @post.subs.each do |sub| %>
-          <h5 id="h5-post"> <li><a href="<%= sub_url(sub) %>"><%= "r/" + sub.title %></a></li> </h5>
-          <span>Posted by
-        <%= "u/" + @post.author.username %></span>
-        <% end %>
-      </ul>
+    <div class="post-content">
+        <ul>
+          <% @post.subs.each do |sub| %>
+            <h5 id="h5-post"> <li><a href="<%= sub_url(sub) %>"><%= "r/" + sub.title %></a></li> </h5>
+            <span>Posted by
+          <%= "u/" + @post.author.username %></span>
+          <% end %>
+        </ul>
 
-      <h1>
-        <h5><%= @post.title %></h5> 
-      </h1>
+        <h1>
+          <h5><%= @post.title %></h5> 
+        </h1>
 
-      <div class="small-border">
-        <p id="p-post"><%= @post.content %></p>
-        <br><br>
-      </div>
+        <div class="small-border">
+          <p id="p-post"><%= @post.content %></p>
+          <br><br>
+        </div>
 
     </div>
-      <br>
+    <br>
      
 
 
-  <i class="fal fa-comment-alt"></i>
-  <span> Comments </span>       <a class="a-edit" href="<%= edit_post_url(@post) if @post.author == current_user %>">Edit this post</a>
+      <i class="fal fa-comment-alt"></i>
+      <span> Comments </span>       <a class="a-edit" href="<%= edit_post_url(@post) if @post.author == current_user %>">Edit this post</a>
 
-   <hr>
-  <br>
+      <hr>
+      <br>
 
-  <ul>
-    <% comments_by_parent = @post.comments_by_parent %>
-    <% comments_by_parent[nil].each do |top_level_comment| %>
-      <li class="li-comments"> <span><%= "u/" + @post.author.username %></span>
-        <%= render("comments/comment",
-                   comment: top_level_comment,
-                   comments_by_parent: comments_by_parent) %>
-      </li>
-    <% end %>
-  </ul>
+      <ul>
+        <% comments_by_parent = @post.comments_by_parent %>
+        <% comments_by_parent[nil].each do |top_level_comment| %>
+          <li class="li-comments"> <span><%= "u/" + @post.author.username %></span>
+            <%= render("comments/comment",
+                      comment: top_level_comment,
+                      comments_by_parent: comments_by_parent) %>
+          </li>
+        <% end %>
+      </ul>
 
-  <a href="<%= new_post_comment_url(@post.id) %>">Comment on this post!</a>
+      <a href="<%= new_post_comment_url(@post.id) %>">Comment on this post!</a>
 
-  
-    </div>
+      
+  </div>
 </div>
 
+<div class="sub-show-side-bar2">
   <div class="box-description2">
     <h6> About Community </h6>
     <p id="p-description"><%= @sub.description %></p>
   </div>
 
+  <div class="box-description-ad">
+    <span>ADVERTISEMENT</span>
+    <a href="https://www.rockstargames.com/newswire/article/ak759k91592728/gta-online-the-contract-out-now?rdt_cid=3470073563149613612&utm_campaign=278%3Athecontract-launch-20211215&utm_content=us-eng&utm_medium=p_social&utm_source=reddit"><%= image_tag("ad.png", :alt => "ad", style:'display:inline;') %></a>
+  </div>
 
+</div>
 
 
 </div>
+ 

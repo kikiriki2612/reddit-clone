@@ -1,6 +1,6 @@
 
 
-<div class="show-sub">
+<div class="index-page">
 
   
   <div class="container-post1">
@@ -29,9 +29,38 @@
   </div>
     
 
-  <div class="box-description">
-    <h6> About Community </h6>
-    <p id="p-description"><%= @sub.description %></p>
+  <div class="hello">
+
+    <div class="box-description-index-page">
+      <h6> About Community </h6>
+      <p id="p-description"><%= @sub.description %></p>
+    </div>
+
+    <div class="box-description-index-page">
+    <h6 id="r-rules"> R/RULES</h6> 
+    <ol>
+      <li> Read The FAQ Before Posting </li>
+      <li> Stay on Topic </li>
+      <li> No Cheat Posts </li>
+      <li> Be Respectful and Accurate </li>
+      <li> No Self Promotion/Spam </li>
+      <li> No Giving or Soliciting Medical Advice </li>
+
+    </ol>
+  </div>
+
+    <div class="box-description-index-page">
+    <h6 id="h6-reddit-rules"><%= image_tag("reddit-rules.png", :alt => "reddit-rules", style: 'height:51px;width:62px;display:inline;') %>Posting to Reddit</h6> 
+    <ol>
+      <li> Remember the human </li>
+      <li> Behave like you would in real life </li>
+      <li> Look for the original source of content </li>
+      <li> Search for duplicates before posting </li>
+      <li> Read the community’s rules </li>
+
+    </ol>
+  </div>
+
   </div>
 
   

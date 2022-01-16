@@ -54236,3 +54236,2659 @@ Processing by SubsController#index as HTML
 Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 2.2ms)
 
 
+Started GET "/subs" for ::1 at 2022-01-15 13:38:42 -0800
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (557.9ms)
+  Rendered shared/_main_nav.html.erb (2.9ms)
+Completed 200 OK in 682ms (Views: 611.6ms | ActiveRecord: 20.2ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 13:38:44 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (104.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (2.8ms)
+Completed 200 OK in 133ms (Views: 79.1ms | ActiveRecord: 47.6ms)
+
+
+Started GET "/posts/10" for ::1 at 2022-01-15 13:38:45 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (4.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1 ORDER BY "subs"."id" ASC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  ↳ app/models/post.rb:19
+  Rendered comments/_comment.html.erb (0.7ms)
+  Rendered posts/show.html.erb within layouts/application (94.4ms)
+  Rendered shared/_main_nav.html.erb (2.0ms)
+Completed 200 OK in 172ms (Views: 105.2ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:38:46 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (8.1ms)
+  Rendered shared/_main_nav.html.erb (2.3ms)
+Completed 200 OK in 57ms (Views: 52.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:42:37 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (17.1ms)
+  Rendered shared/_main_nav.html.erb (3.2ms)
+Completed 200 OK in 64ms (Views: 57.0ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:42:49 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (9.6ms)
+  Rendered shared/_main_nav.html.erb (2.0ms)
+Completed 200 OK in 29ms (Views: 24.5ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:42:54 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (17.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (23.6ms)
+  Rendered shared/_main_nav.html.erb (1.7ms)
+Completed 200 OK in 43ms (Views: 24.1ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/subs/keto" for ::1 at 2022-01-15 13:46:22 -0800
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"keto"}
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "keto"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 9]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 8], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (85.1ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (30.3ms)
+Completed 200 OK in 1004ms (Views: 898.9ms | ActiveRecord: 31.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:46:25 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (7.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (12.1ms)
+  Rendered shared/_main_nav.html.erb (2.5ms)
+Completed 200 OK in 28ms (Views: 19.1ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:46:40 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (46.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (51.5ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 76ms (Views: 27.3ms | ActiveRecord: 47.2ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 13:46:42 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (23.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (10.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (11.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (41.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (94.8ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.2ms)
+Completed 200 OK in 120ms (Views: 26.7ms | ActiveRecord: 90.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:46:43 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (7.7ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 56ms (Views: 51.2ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:46:54 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (10.8ms)
+  Rendered shared/_main_nav.html.erb (1.7ms)
+Completed 200 OK in 32ms (Views: 26.0ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 13:46:56 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (51.9ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (10.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (5.6ms)
+Completed 200 OK in 81ms (Views: 21.5ms | ActiveRecord: 57.7ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:46:57 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (4.3ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:47:40 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (20.2ms)
+  Rendered shared/_main_nav.html.erb (2.7ms)
+Completed 200 OK in 51ms (Views: 40.8ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:48:30 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (11.9ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 31ms (Views: 24.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 13:48:31 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (1.2ms)
+  Rendered subs/new.html.erb within layouts/application (2.8ms)
+  Rendered shared/_main_nav.html.erb (12.2ms)
+Completed 200 OK in 39ms (Views: 35.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:48:32 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (7.6ms)
+  Rendered shared/_main_nav.html.erb (48.2ms)
+Completed 200 OK in 81ms (Views: 78.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:48:45 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (16.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (24.5ms)
+  Rendered shared/_main_nav.html.erb (3.4ms)
+Completed 200 OK in 51ms (Views: 31.1ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-15 13:48:47 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (17.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (20.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:27
+  Rendered posts/_form.html.erb (28.0ms)
+  Rendered posts/new.html.erb within layouts/application (29.6ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 66ms (Views: 26.0ms | ActiveRecord: 37.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:50:04 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (4.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (11.6ms)
+  Rendered shared/_main_nav.html.erb (4.2ms)
+Completed 200 OK in 54ms (Views: 48.1ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 13:50:58 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (14.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (13.8ms)
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (8.6ms)
+Completed 200 OK in 60ms (Views: 30.4ms | ActiveRecord: 26.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:50:59 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (23.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (29.9ms)
+  Rendered shared/_main_nav.html.erb (1.2ms)
+Completed 200 OK in 45ms (Views: 20.3ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 13:51:00 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (23.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.5ms)
+  Rendered subs/new.html.erb within layouts/application (1.2ms)
+  Rendered shared/_main_nav.html.erb (1.5ms)
+Completed 200 OK in 47ms (Views: 21.1ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:51:15 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (14.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (74.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (99.9ms)
+  Rendered shared/_main_nav.html.erb (2.1ms)
+Completed 200 OK in 126ms (Views: 35.4ms | ActiveRecord: 89.5ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:51:29 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (5.5ms)
+  Rendered shared/_main_nav.html.erb (1.7ms)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:52:47 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (5.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (14.1ms)
+  Rendered shared/_main_nav.html.erb (1.9ms)
+Completed 200 OK in 55ms (Views: 46.5ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:52:53 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (55.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (68.8ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 94ms (Views: 29.5ms | ActiveRecord: 64.6ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 13:53:08 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (2.7ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (64.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (70.7ms)
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (6.5ms)
+Completed 200 OK in 96ms (Views: 20.4ms | ActiveRecord: 72.8ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 13:53:10 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (1.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (9.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (7.2ms)
+Completed 200 OK in 40ms (Views: 30.6ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 13:53:14 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (8.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (4.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (9.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (36.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (56.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (2.5ms)
+Completed 200 OK in 107ms (Views: 44.6ms | ActiveRecord: 59.5ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:54:19 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (10.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (18.3ms)
+  Rendered shared/_main_nav.html.erb (1.9ms)
+Completed 200 OK in 55ms (Views: 43.6ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 13:58:47 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (3.1ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (15.9ms)
+  [1m[36mUser Load (10.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (22.6ms)
+Completed 200 OK in 84ms (Views: 52.4ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 13:58:48 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (12.1ms)
+  Rendered shared/_main_nav.html.erb (1.6ms)
+Completed 200 OK in 32ms (Views: 24.8ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 14:00:14 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (12.6ms)
+  Rendered shared/_main_nav.html.erb (3.1ms)
+Completed 200 OK in 36ms (Views: 28.9ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 14:00:40 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (3.1ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (19.2ms)
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (39.5ms)
+Completed 200 OK in 83ms (Views: 58.2ms | ActiveRecord: 21.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 14:00:41 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (44.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (53.5ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 69ms (Views: 21.0ms | ActiveRecord: 47.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 16:29:23 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (60.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (82.3ms)
+  Rendered shared/_main_nav.html.erb (3.8ms)
+Completed 200 OK in 149ms (Views: 84.9ms | ActiveRecord: 62.3ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 16:29:26 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (1.1ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (44.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (65.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.5ms)
+Completed 200 OK in 109ms (Views: 32.7ms | ActiveRecord: 56.4ms)
+
+
+Started GET "/posts/10" for ::1 at 2022-01-15 16:29:28 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (4.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mSub Load (5.9ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1 ORDER BY "subs"."id" ASC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSub Load (42.9ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mSub Load (3.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  ↳ app/models/post.rb:19
+  Rendered comments/_comment.html.erb (0.8ms)
+  Rendered posts/show.html.erb within layouts/application (103.5ms)
+  Rendered shared/_main_nav.html.erb (1.6ms)
+Completed 200 OK in 191ms (Views: 91.5ms | ActiveRecord: 80.2ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 16:29:29 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (7.2ms)
+  Rendered shared/_main_nav.html.erb (1.2ms)
+Completed 200 OK in 24ms (Views: 21.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:20:24 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (12.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (56.3ms)
+  Rendered shared/_main_nav.html.erb (5.1ms)
+Completed 200 OK in 110ms (Views: 74.6ms | ActiveRecord: 32.7ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-15 17:20:40 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (3.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:27
+  Rendered posts/_form.html.erb (5.9ms)
+  Rendered posts/new.html.erb within layouts/application (7.7ms)
+  Rendered shared/_main_nav.html.erb (1.5ms)
+Completed 200 OK in 35ms (Views: 24.8ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:20:49 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (62.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (69.1ms)
+  Rendered shared/_main_nav.html.erb (2.7ms)
+Completed 200 OK in 94ms (Views: 30.5ms | ActiveRecord: 63.2ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:20:50 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (14.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.7ms)
+  Rendered subs/new.html.erb within layouts/application (2.0ms)
+  Rendered shared/_main_nav.html.erb (3.7ms)
+Completed 200 OK in 46ms (Views: 27.1ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:20:58 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (8.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (56.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (83.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (2.6ms)
+Completed 200 OK in 107ms (Views: 28.3ms | ActiveRecord: 73.3ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:21:01 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (4.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (33.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (56.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (98.7ms)
+  [1m[36mUser Load (13.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (15.9ms)
+Completed 200 OK in 136ms (Views: 22.6ms | ActiveRecord: 111.2ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:22:06 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (15.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (12.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (31.8ms)
+  Rendered shared/_main_nav.html.erb (2.9ms)
+Completed 200 OK in 62ms (Views: 33.9ms | ActiveRecord: 27.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:22:30 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (10.2ms)
+  Rendered shared/_main_nav.html.erb (1.9ms)
+Completed 200 OK in 56ms (Views: 51.0ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:22:44 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (5.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (11.0ms)
+  Rendered shared/_main_nav.html.erb (3.3ms)
+Completed 200 OK in 48ms (Views: 41.1ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:23:17 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (53.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (64.4ms)
+  Rendered shared/_main_nav.html.erb (3.9ms)
+Completed 200 OK in 111ms (Views: 51.3ms | ActiveRecord: 59.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:23:30 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (8.6ms)
+  Rendered shared/_main_nav.html.erb (7.7ms)
+Completed 200 OK in 62ms (Views: 57.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:23:45 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (8.4ms)
+  Rendered shared/_main_nav.html.erb (4.5ms)
+Completed 200 OK in 79ms (Views: 76.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:25:53 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (7.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (51.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (73.4ms)
+  Rendered shared/_main_nav.html.erb (3.8ms)
+Completed 200 OK in 121ms (Views: 59.3ms | ActiveRecord: 59.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:26:14 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (5.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (10.2ms)
+  Rendered shared/_main_nav.html.erb (1.2ms)
+Completed 200 OK in 27ms (Views: 19.9ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:26:18 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (4.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (13.5ms)
+  Rendered shared/_main_nav.html.erb (4.3ms)
+Completed 200 OK in 66ms (Views: 56.4ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:27:03 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (7.7ms)
+  Rendered shared/_main_nav.html.erb (2.5ms)
+Completed 200 OK in 43ms (Views: 39.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:27:13 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (13.1ms)
+  Rendered shared/_main_nav.html.erb (2.1ms)
+Completed 200 OK in 33ms (Views: 24.2ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:27:24 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (12.5ms)
+  Rendered shared/_main_nav.html.erb (2.1ms)
+Completed 200 OK in 45ms (Views: 39.7ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:27:42 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (4.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (12.2ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 117ms (Views: 110.4ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:27:52 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (11.9ms)
+  Rendered shared/_main_nav.html.erb (1.2ms)
+Completed 200 OK in 44ms (Views: 37.4ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:28:03 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (4.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (36.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (45.5ms)
+  Rendered shared/_main_nav.html.erb (1.5ms)
+Completed 200 OK in 75ms (Views: 33.6ms | ActiveRecord: 40.5ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:28:26 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (7.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (12.5ms)
+  Rendered shared/_main_nav.html.erb (2.8ms)
+Completed 200 OK in 44ms (Views: 35.9ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:28:34 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (4.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (14.1ms)
+  Rendered shared/_main_nav.html.erb (2.5ms)
+Completed 200 OK in 55ms (Views: 45.6ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:28:52 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (9.9ms)
+  Rendered shared/_main_nav.html.erb (2.8ms)
+Completed 200 OK in 48ms (Views: 42.4ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:29:11 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (24.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (31.7ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 53ms (Views: 27.0ms | ActiveRecord: 25.5ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:29:32 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (4.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (59.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (81.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.7ms)
+Completed 200 OK in 118ms (Views: 42.6ms | ActiveRecord: 72.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:29:33 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (40.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (48.9ms)
+  Rendered shared/_main_nav.html.erb (2.8ms)
+Completed 200 OK in 83ms (Views: 39.0ms | ActiveRecord: 43.5ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:30:06 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (12.6ms)
+  Rendered shared/_main_nav.html.erb (2.7ms)
+Completed 200 OK in 49ms (Views: 40.1ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:31:28 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (5.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (136.9ms)
+  Rendered shared/_main_nav.html.erb (4.2ms)
+Completed 200 OK in 217ms (Views: 208.6ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:31:50 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (7.0ms)
+  Rendered shared/_main_nav.html.erb (2.5ms)
+Completed 200 OK in 25ms (Views: 23.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:32:04 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (5.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (15.0ms)
+  Rendered shared/_main_nav.html.erb (3.2ms)
+Completed 200 OK in 35ms (Views: 28.8ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:32:16 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (11.0ms)
+  Rendered shared/_main_nav.html.erb (1.5ms)
+Completed 200 OK in 32ms (Views: 26.2ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:33:14 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (12.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (19.0ms)
+  Rendered shared/_main_nav.html.erb (1.7ms)
+Completed 200 OK in 38ms (Views: 24.1ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:34:05 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (5.6ms)
+  Rendered shared/_main_nav.html.erb (2.8ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:34:17 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (6.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (14.8ms)
+  Rendered shared/_main_nav.html.erb (1.7ms)
+Completed 200 OK in 89ms (Views: 80.6ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:34:37 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (6.6ms)
+  Rendered shared/_main_nav.html.erb (1.4ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:34:47 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (4.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (12.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (23.2ms)
+  Rendered shared/_main_nav.html.erb (5.7ms)
+Completed 200 OK in 52ms (Views: 34.4ms | ActiveRecord: 17.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:34:52 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (8.2ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 34ms (Views: 29.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:35:20 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (11.7ms)
+  Rendered shared/_main_nav.html.erb (2.0ms)
+Completed 200 OK in 64ms (Views: 61.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:36:35 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (18.7ms)
+  Rendered shared/_main_nav.html.erb (2.6ms)
+Completed 200 OK in 65ms (Views: 60.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:37:28 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (8.1ms)
+  Rendered shared/_main_nav.html.erb (2.0ms)
+Completed 200 OK in 50ms (Views: 48.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:38:45 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (25.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (33.5ms)
+  Rendered shared/_main_nav.html.erb (2.2ms)
+Completed 200 OK in 78ms (Views: 50.9ms | ActiveRecord: 26.7ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:39:09 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (6.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (12.4ms)
+  Rendered shared/_main_nav.html.erb (1.2ms)
+Completed 200 OK in 30ms (Views: 22.9ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/subs/keto" for ::1 at 2022-01-15 17:39:16 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"keto"}
+  [1m[36mSub Load (2.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "keto"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (73.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 9]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 8], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (78.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (5.3ms)
+Completed 200 OK in 111ms (Views: 29.3ms | ActiveRecord: 77.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:39:17 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (9.8ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 31ms (Views: 25.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:40:04 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (5.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (7.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (16.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (12.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (64.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (109.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (4.3ms)
+Completed 200 OK in 156ms (Views: 42.9ms | ActiveRecord: 109.2ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:40:15 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (7.9ms)
+  Rendered shared/_main_nav.html.erb (1.7ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:42:07 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (4.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (29.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (23.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (13.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (14.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (92.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.6ms)
+Completed 200 OK in 121ms (Views: 31.8ms | ActiveRecord: 86.7ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:43:29 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (60.9ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (5.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (8.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (77.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (104.0ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (4.3ms)
+Completed 200 OK in 186ms (Views: 26.0ms | ActiveRecord: 157.5ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:43:40 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (1.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (3.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (8.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (33.3ms)
+  [1m[36mUser Load (18.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (21.2ms)
+Completed 200 OK in 84ms (Views: 37.2ms | ActiveRecord: 42.5ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:43:48 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (10.4ms)
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (5.7ms)
+Completed 200 OK in 33ms (Views: 23.1ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:43:58 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (7.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (10.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (32.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (15.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (16.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (88.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (2.9ms)
+Completed 200 OK in 118ms (Views: 27.6ms | ActiveRecord: 83.6ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:44:13 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (10.7ms)
+  [1m[36mUser Load (10.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (14.4ms)
+Completed 200 OK in 47ms (Views: 28.7ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:44:16 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (21.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (66.7ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 90ms (Views: 67.3ms | ActiveRecord: 21.9ms)
+
+
+Started GET "/subs/sanfrancisco" for ::1 at 2022-01-15 17:44:21 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"sanfrancisco"}
+  [1m[36mSub Load (5.7ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (30.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 6]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (17.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (26.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 17], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (79.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.9ms)
+Completed 200 OK in 109ms (Views: 25.3ms | ActiveRecord: 79.6ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-15 17:44:59 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (19.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:27
+  Rendered posts/_form.html.erb (2.9ms)
+  Rendered posts/new.html.erb within layouts/application (4.3ms)
+  Rendered shared/_main_nav.html.erb (2.6ms)
+Completed 200 OK in 56ms (Views: 32.2ms | ActiveRecord: 19.7ms)
+
+
+Started POST "/posts" for ::1 at 2022-01-15 17:45:21 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"r2cND7gykyi97eiYoYavHfiCs7+aYnL32vKZ+y3etxnZFkjEsnEAVsUWlropAsw3oAoG9OwlaQgx7nAJyqV6cQ==", "post"=>{"title"=>"What do I do with three middle schoolers who were expecting a concert today? Please help! [we are ALL vaccinated]", "content"=>"I bought my kid concert tickets for their birthday and it was cancelled (last minute) this morning. Now I have a bunch of hyped-up young teens in my house and no plans. I know options are severely limited due to COVID. Does anyone have any suggestions?\r\n\r\n", "sub_ids"=>["", "6"]}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/posts_controller.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mSub Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 AND "subs"."id" != $2 LIMIT $3[0m  [["title", "sanfrancisco"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPost Create (74.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "What do I do with three middle schoolers who were expecting a concert today? Please help! [we are ALL vaccinated]"], ["content", "I bought my kid concert tickets for their birthday and it was cancelled (last minute) this morning. Now I have a bunch of hyped-up young teens in my house and no plans. I know options are severely limited due to COVID. Does anyone have any suggestions?\r\n\r\n"], ["user_id", 6], ["created_at", "2022-01-16 01:45:21.582395"], ["updated_at", "2022-01-16 01:45:21.582395"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPostSub Create (1.0ms)[0m  [1m[32mINSERT INTO "post_subs" ("post_id", "sub_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 23], ["sub_id", 6], ["created_at", "2022-01-16 01:45:21.659694"], ["updated_at", "2022-01-16 01:45:21.659694"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:11
+Redirected to http://localhost:3000/posts/23
+Completed 302 Found in 168ms (ActiveRecord: 92.8ms)
+
+
+Started GET "/posts/23" for ::1 at 2022-01-15 17:45:21 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1 ORDER BY "subs"."id" ASC LIMIT $2[0m  [["post_id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSub Load (77.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (118.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 23], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 23]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mUser Load (28.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 23]]
+  ↳ app/models/post.rb:19
+  Rendered posts/show.html.erb within layouts/application (190.1ms)
+  Rendered shared/_main_nav.html.erb (2.1ms)
+Completed 200 OK in 331ms (Views: 70.0ms | ActiveRecord: 228.7ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:45:24 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (9.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (20.0ms)
+  Rendered shared/_main_nav.html.erb (2.8ms)
+Completed 200 OK in 44ms (Views: 33.3ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:45:27 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (1.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (39.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (14.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (62.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (2.6ms)
+Completed 200 OK in 85ms (Views: 21.6ms | ActiveRecord: 57.8ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:45:30 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (7.8ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 37ms (Views: 34.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/subs/sanfrancisco" for ::1 at 2022-01-15 17:45:30 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"sanfrancisco"}
+  [1m[36mSub Load (5.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 6]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 17], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 23], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (13.0ms)
+  [1m[36mUser Load (61.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (66.0ms)
+Completed 200 OK in 101ms (Views: 24.5ms | ActiveRecord: 74.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-15 17:45:46 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (2.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:27
+  Rendered posts/_form.html.erb (4.2ms)
+  Rendered posts/new.html.erb within layouts/application (6.0ms)
+  Rendered shared/_main_nav.html.erb (1.9ms)
+Completed 200 OK in 32ms (Views: 23.4ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/posts" for ::1 at 2022-01-15 17:45:55 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"lCvUfAaqWh6qEivAF40SuDL+kNnu6RFotLSzheTIrD/iWpG3DOnJYNLpVeKfCXGSanYlkpiuCpdfqFp3A7NhVw==", "post"=>{"title"=>"Night markets or anything like it in sf or the bay?", "content"=>"I went to a few night markets a couple of months ago and loved it. I just saw a video of a bunch of food trucks that come together and create a mini night market in L.A. does anyone know if there’s anything like that around us?\r\n\r\n", "sub_ids"=>["", "6"]}}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mSub Load (3.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/posts_controller.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mSub Exists (3.9ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 AND "subs"."id" != $2 LIMIT $3[0m  [["title", "sanfrancisco"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mUser Load (43.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPost Create (3.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Night markets or anything like it in sf or the bay?"], ["content", "I went to a few night markets a couple of months ago and loved it. I just saw a video of a bunch of food trucks that come together and create a mini night market in L.A. does anyone know if there’s anything like that around us?\r\n\r\n"], ["user_id", 6], ["created_at", "2022-01-16 01:45:55.456756"], ["updated_at", "2022-01-16 01:45:55.456756"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPostSub Create (87.5ms)[0m  [1m[32mINSERT INTO "post_subs" ("post_id", "sub_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 24], ["sub_id", 6], ["created_at", "2022-01-16 01:45:55.461690"], ["updated_at", "2022-01-16 01:45:55.461690"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:11
+Redirected to http://localhost:3000/posts/24
+Completed 302 Found in 158ms (ActiveRecord: 146.6ms)
+
+
+Started GET "/posts/24" for ::1 at 2022-01-15 17:45:55 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1 ORDER BY "subs"."id" ASC LIMIT $2[0m  [["post_id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 24], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 24]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 24]]
+  ↳ app/models/post.rb:19
+  Rendered posts/show.html.erb within layouts/application (11.8ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 40ms (Views: 29.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:45:57 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (8.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (29.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (42.9ms)
+  Rendered shared/_main_nav.html.erb (1.2ms)
+Completed 200 OK in 62ms (Views: 24.2ms | ActiveRecord: 37.3ms)
+
+
+Started GET "/subs/fantasy" for ::1 at 2022-01-15 17:46:05 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"fantasy"}
+  [1m[36mSub Load (17.1ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "fantasy"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (9.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 7]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 12], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 19], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 20], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (48.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 21], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (74.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.6ms)
+Completed 200 OK in 117ms (Views: 33.1ms | ActiveRecord: 81.5ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-15 17:46:28 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (28.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:27
+  Rendered posts/_form.html.erb (31.1ms)
+  Rendered posts/new.html.erb within layouts/application (32.8ms)
+  Rendered shared/_main_nav.html.erb (1.4ms)
+Completed 200 OK in 71ms (Views: 31.5ms | ActiveRecord: 30.1ms)
+
+
+Started POST "/posts" for ::1 at 2022-01-15 17:46:37 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"z+YDD1rsjUimYtN1SD1LZbDDtNrIhEwMQEUtRpr4Ggi5l0bEUK8eNt6ZrVfAuShP6EsBkb7DV/OrWcS0fYPXYA==", "post"=>{"title"=>"Berserk is top tier fantasy", "content"=>"But I almost never hear it discussed on booktube or on this subreddit. Have people just not read it? I get a sense that a lot of booktubers/fantasy fans are not manga readers, which is a real shame. For me it ranks up there with many of the fantasy greats. Its a masterwork, visually and narratively imo.\r\n\r\n", "sub_ids"=>["", "7"]}}
+  [1m[36mUser Load (41.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mSub Load (3.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/posts_controller.rb:10
+  [1m[35m (8.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mSub Exists (5.9ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 AND "subs"."id" != $2 LIMIT $3[0m  [["title", "fantasy"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Berserk is top tier fantasy"], ["content", "But I almost never hear it discussed on booktube or on this subreddit. Have people just not read it? I get a sense that a lot of booktubers/fantasy fans are not manga readers, which is a real shame. For me it ranks up there with many of the fantasy greats. Its a masterwork, visually and narratively imo.\r\n\r\n"], ["user_id", 6], ["created_at", "2022-01-16 01:46:37.859898"], ["updated_at", "2022-01-16 01:46:37.859898"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPostSub Create (0.4ms)[0m  [1m[32mINSERT INTO "post_subs" ("post_id", "sub_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 25], ["sub_id", 7], ["created_at", "2022-01-16 01:46:37.862842"], ["updated_at", "2022-01-16 01:46:37.862842"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:11
+Redirected to http://localhost:3000/posts/25
+Completed 302 Found in 81ms (ActiveRecord: 67.0ms)
+
+
+Started GET "/posts/25" for ::1 at 2022-01-15 17:46:37 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mSub Load (1.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1 ORDER BY "subs"."id" ASC LIMIT $2[0m  [["post_id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "fantasy"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 25], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 25]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 25]]
+  ↳ app/models/post.rb:19
+  Rendered posts/show.html.erb within layouts/application (12.2ms)
+  Rendered shared/_main_nav.html.erb (3.2ms)
+Completed 200 OK in 45ms (Views: 34.3ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:46:40 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (4.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (18.0ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 38ms (Views: 32.0ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/subs/keto" for ::1 at 2022-01-15 17:46:42 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"keto"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "keto"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (14.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 9]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 8], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (19.5ms)
+  [1m[36mUser Load (31.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (35.0ms)
+Completed 200 OK in 74ms (Views: 22.1ms | ActiveRecord: 47.5ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-15 17:47:08 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:27
+  Rendered posts/_form.html.erb (2.1ms)
+  Rendered posts/new.html.erb within layouts/application (3.4ms)
+  Rendered shared/_main_nav.html.erb (5.2ms)
+Completed 200 OK in 38ms (Views: 28.8ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/posts" for ::1 at 2022-01-15 17:47:18 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"TzqMq7pRE6owTO+s+Mpshfh3/MwJ3S1ZBAu4MIa8RYU5S8lgsBKA1Ei3kY5wTg+voP9Jh3+aNqbvF1HCYceI7Q==", "post"=>{"title"=>"Keto so far", "content"=>"Hello everyone. I (28M, 6,4“/195cm) just wanted to tell you about my short keto story so far.\r\n\r\nAfter the holidays I realized that I „suddenly“ weighed 240lbs/109kg and I knew I had to do something about it.\r\n\r\nI stumbled across keto a while ago and wanted to give it a shot. I started January 2nd and till today I lost 18lbs/8,2kg already knowing that it might mainly be water.\r\n\r\nNevertheless I feel great, not bloated, not hungry and enjoying a variety of vegetables and meats. I was never big on bread or pasta but had indulged on fast food and sweets like cakes and cookies. Don‘t miss it yet.\r\n\r\nThanks for this community and keep on ketoing. :)", "sub_ids"=>["", "9"]}}
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mSub Load (1.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs" WHERE "subs"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/posts_controller.rb:10
+  [1m[35m (6.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mSub Exists (11.8ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 AND "subs"."id" != $2 LIMIT $3[0m  [["title", "keto"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mUser Load (76.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPost Create (4.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Keto so far"], ["content", "Hello everyone. I (28M, 6,4“/195cm) just wanted to tell you about my short keto story so far.\r\n\r\nAfter the holidays I realized that I „suddenly“ weighed 240lbs/109kg and I knew I had to do something about it.\r\n\r\nI stumbled across keto a while ago and wanted to give it a shot. I started January 2nd and till today I lost 18lbs/8,2kg already knowing that it might mainly be water.\r\n\r\nNevertheless I feel great, not bloated, not hungry and enjoying a variety of vegetables and meats. I was never big on bread or pasta but had indulged on fast food and sweets like cakes and cookies. Don‘t miss it yet.\r\n\r\nThanks for this community and keep on ketoing. :)"], ["user_id", 6], ["created_at", "2022-01-16 01:47:18.665741"], ["updated_at", "2022-01-16 01:47:18.665741"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[36mPostSub Create (0.9ms)[0m  [1m[32mINSERT INTO "post_subs" ("post_id", "sub_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 26], ["sub_id", 9], ["created_at", "2022-01-16 01:47:18.672573"], ["updated_at", "2022-01-16 01:47:18.672573"]]
+  ↳ app/controllers/posts_controller.rb:11
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:11
+Redirected to http://localhost:3000/posts/26
+Completed 302 Found in 129ms (ActiveRecord: 113.9ms)
+
+
+Started GET "/posts/26" for ::1 at 2022-01-15 17:47:18 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mSub Load (1.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1 ORDER BY "subs"."id" ASC LIMIT $2[0m  [["post_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "keto"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 26], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mSub Load (0.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 26]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mUser Load (22.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 26]]
+  ↳ app/models/post.rb:19
+  Rendered posts/show.html.erb within layouts/application (42.1ms)
+  Rendered shared/_main_nav.html.erb (2.1ms)
+Completed 200 OK in 68ms (Views: 28.9ms | ActiveRecord: 32.9ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:47:21 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (11.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (22.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (42.5ms)
+  Rendered shared/_main_nav.html.erb (1.2ms)
+Completed 200 OK in 62ms (Views: 26.3ms | ActiveRecord: 34.5ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:47:27 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (2.4ms)
+  Rendered subs/new.html.erb within layouts/application (4.1ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 43ms (Views: 32.5ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:47:29 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (15.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (24.2ms)
+  Rendered shared/_main_nav.html.erb (19.7ms)
+Completed 200 OK in 69ms (Views: 50.5ms | ActiveRecord: 17.8ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-01-15 17:47:31 -0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mSub Load (4.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/posts/_form.html.erb:27
+  Rendered posts/_form.html.erb (6.8ms)
+  Rendered posts/new.html.erb within layouts/application (8.4ms)
+  Rendered shared/_main_nav.html.erb (1.5ms)
+Completed 200 OK in 31ms (Views: 21.8ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:47:34 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (10.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (19.7ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 171ms (Views: 158.4ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:48:26 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (1.1ms)
+  Rendered subs/new.html.erb within layouts/application (3.6ms)
+  Rendered shared/_main_nav.html.erb (2.2ms)
+Completed 200 OK in 36ms (Views: 30.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:48:59 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (2.6ms)
+  Rendered subs/new.html.erb within layouts/application (4.4ms)
+  Rendered shared/_main_nav.html.erb (2.3ms)
+Completed 200 OK in 31ms (Views: 27.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:49:44 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (2.6ms)
+  Rendered subs/new.html.erb within layouts/application (8.1ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 70ms (Views: 66.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:50:02 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (1.4ms)
+  Rendered subs/new.html.erb within layouts/application (2.8ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 30ms (Views: 22.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:50:07 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (4.2ms)
+  Rendered subs/new.html.erb within layouts/application (5.5ms)
+  Rendered shared/_main_nav.html.erb (1.7ms)
+Completed 200 OK in 67ms (Views: 61.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:50:11 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (10.9ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:52:50 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (1.8ms)
+  Rendered subs/new.html.erb within layouts/application (2.9ms)
+  Rendered shared/_main_nav.html.erb (2.5ms)
+Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:54:14 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (2.2ms)
+  Rendered subs/new.html.erb within layouts/application (4.6ms)
+  Rendered shared/_main_nav.html.erb (3.0ms)
+Completed 200 OK in 98ms (Views: 90.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:54:36 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (1.5ms)
+  Rendered subs/new.html.erb within layouts/application (3.0ms)
+  Rendered shared/_main_nav.html.erb (1.6ms)
+Completed 200 OK in 43ms (Views: 37.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:54:56 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (2.3ms)
+  Rendered subs/new.html.erb within layouts/application (3.6ms)
+  Rendered shared/_main_nav.html.erb (2.0ms)
+Completed 200 OK in 38ms (Views: 28.2ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:55:00 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (2.6ms)
+  Rendered subs/new.html.erb within layouts/application (4.1ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 31ms (Views: 27.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:55:17 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (2.9ms)
+  Rendered subs/new.html.erb within layouts/application (5.1ms)
+  Rendered shared/_main_nav.html.erb (1.7ms)
+Completed 200 OK in 39ms (Views: 32.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:56:02 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (1.4ms)
+  Rendered subs/new.html.erb within layouts/application (2.6ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 24ms (Views: 21.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/subs/new" for ::1 at 2022-01-15 17:56:15 -0800
+Processing by SubsController#new as HTML
+  [1m[36mUser Load (10.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.6ms)
+  Rendered subs/new.html.erb within layouts/application (1.8ms)
+  Rendered shared/_main_nav.html.erb (2.9ms)
+Completed 200 OK in 38ms (Views: 25.2ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:56:16 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (12.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (27.4ms)
+  Rendered shared/_main_nav.html.erb (2.0ms)
+Completed 200 OK in 51ms (Views: 33.1ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:56:25 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (7.1ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (4.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (66.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (84.3ms)
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (11.0ms)
+Completed 200 OK in 124ms (Views: 25.7ms | ActiveRecord: 93.8ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:57:13 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (11.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (26.3ms)
+  Rendered shared/_main_nav.html.erb (2.2ms)
+Completed 200 OK in 73ms (Views: 54.6ms | ActiveRecord: 17.8ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:58:00 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (2.9ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (12.1ms)
+  [1m[36mUser Load (46.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (49.8ms)
+Completed 200 OK in 90ms (Views: 33.4ms | ActiveRecord: 53.7ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:58:30 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (20.1ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (20.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (30.5ms)
+  [1m[36mUser Load (77.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (80.8ms)
+Completed 200 OK in 155ms (Views: 31.9ms | ActiveRecord: 120.9ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:58:32 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (10.1ms)
+  Rendered shared/_main_nav.html.erb (1.9ms)
+Completed 200 OK in 31ms (Views: 26.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:58:35 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (48.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (12.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (75.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.1ms)
+Completed 200 OK in 101ms (Views: 28.3ms | ActiveRecord: 70.5ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:59:35 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (1.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (3.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (14.4ms)
+  [1m[36mUser Load (76.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (80.1ms)
+Completed 200 OK in 119ms (Views: 29.0ms | ActiveRecord: 87.4ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:59:52 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (13.9ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (10.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (20.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (8.3ms)
+Completed 200 OK in 67ms (Views: 37.1ms | ActiveRecord: 28.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 17:59:54 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (11.9ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 31ms (Views: 25.3ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 17:59:55 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (3.1ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (3.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (10.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (25.4ms)
+  [1m[36mUser Load (24.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (26.1ms)
+Completed 200 OK in 74ms (Views: 24.5ms | ActiveRecord: 46.8ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 18:00:16 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (15.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (4.1ms)
+Completed 200 OK in 41ms (Views: 29.7ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 18:00:22 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (8.1ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 18:00:24 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (1.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (12.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (5.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (42.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (19.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (13.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (101.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.6ms)
+Completed 200 OK in 135ms (Views: 36.7ms | ActiveRecord: 96.1ms)
+
+
+Started GET "/posts/10" for ::1 at 2022-01-15 18:00:33 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (8.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mSub Load (69.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1 ORDER BY "subs"."id" ASC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSub Load (0.7ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mSub Load (0.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  ↳ app/models/post.rb:19
+  Rendered comments/_comment.html.erb (0.5ms)
+  Rendered posts/show.html.erb within layouts/application (16.1ms)
+  Rendered shared/_main_nav.html.erb (1.2ms)
+Completed 200 OK in 113ms (Views: 22.3ms | ActiveRecord: 84.3ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 18:00:35 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (13.1ms)
+  Rendered shared/_main_nav.html.erb (1.6ms)
+Completed 200 OK in 29ms (Views: 23.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/subs/sanfrancisco" for ::1 at 2022-01-15 18:03:02 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"sanfrancisco"}
+  [1m[36mSub Load (59.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (26.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 6]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 17], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 23], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 24], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (38.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.8ms)
+Completed 200 OK in 129ms (Views: 36.2ms | ActiveRecord: 90.8ms)
+
+
+Started GET "/subs/sanfrancisco" for ::1 at 2022-01-15 18:03:03 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"sanfrancisco"}
+  [1m[36mSub Load (9.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (5.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 6]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 17], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 23], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 24], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (16.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (2.3ms)
+Completed 200 OK in 51ms (Views: 28.9ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/subs/sanfrancisco" for ::1 at 2022-01-15 18:03:23 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"sanfrancisco"}
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 6]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 17], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 23], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 24], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (14.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (5.1ms)
+Completed 200 OK in 46ms (Views: 35.4ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/subs/sanfrancisco" for ::1 at 2022-01-15 18:03:29 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"sanfrancisco"}
+  [1m[36mSub Load (14.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (11.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 6]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (17.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 17], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (62.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 23], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (9.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 24], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (109.2ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (6.1ms)
+Completed 200 OK in 166ms (Views: 46.6ms | ActiveRecord: 116.7ms)
+
+
+Started GET "/subs/sanfrancisco" for ::1 at 2022-01-15 18:03:41 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"sanfrancisco"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 6]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 17], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 23], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 24], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (11.2ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.5ms)
+Completed 200 OK in 34ms (Views: 26.4ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/subs/sanfrancisco" for ::1 at 2022-01-15 18:06:08 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"sanfrancisco"}
+  [1m[36mSub Load (4.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (3.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 6]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 17], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (105.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 23], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (28.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 24], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (155.8ms)
+  [1m[36mUser Load (35.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (39.0ms)
+Completed 200 OK in 240ms (Views: 51.3ms | ActiveRecord: 185.3ms)
+
+
+Started GET "/subs/sanfrancisco" for ::1 at 2022-01-15 18:07:39 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"sanfrancisco"}
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (67.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 6]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (8.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 17], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 23], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (53.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 24], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (144.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.2ms)
+Completed 200 OK in 184ms (Views: 47.9ms | ActiveRecord: 132.4ms)
+
+
+Started GET "/subs/sanfrancisco" for ::1 at 2022-01-15 18:08:26 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"sanfrancisco"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "sanfrancisco"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (2.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 6]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 17], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 23], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 24], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (17.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (4.4ms)
+Completed 200 OK in 64ms (Views: 50.4ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 18:08:31 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (6.8ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 31ms (Views: 28.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 18:08:37 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (6.0ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (23.4ms)
+  [1m[36mUser Load (23.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (26.9ms)
+Completed 200 OK in 78ms (Views: 31.0ms | ActiveRecord: 44.4ms)
+
+
+Started GET "/posts/10" for ::1 at 2022-01-15 18:08:47 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mSub Load (1.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1 ORDER BY "subs"."id" ASC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSub Load (4.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (5.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mSub Load (1.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mUser Load (57.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  ↳ app/models/post.rb:19
+  Rendered comments/_comment.html.erb (0.7ms)
+  Rendered posts/show.html.erb within layouts/application (86.9ms)
+  Rendered shared/_main_nav.html.erb (1.5ms)
+Completed 200 OK in 112ms (Views: 27.0ms | ActiveRecord: 81.1ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 18:08:52 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (5.3ms)
+  Rendered shared/_main_nav.html.erb (2.3ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/subs/whole30" for ::1 at 2022-01-15 18:09:11 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"whole30"}
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."slug" = $1 LIMIT $2[0m  [["slug", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:12
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 5]]
+  ↳ app/views/subs/show.html.erb:20
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 11], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 18], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (9.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered shared/_main_nav.html.erb (3.2ms)
+Completed 200 OK in 31ms (Views: 24.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/posts/10" for ::1 at 2022-01-15 18:09:14 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (50.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1 ORDER BY "subs"."id" ASC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "whole30"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mSub Load (1.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  ↳ app/models/post.rb:19
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  ↳ app/models/post.rb:19
+  Rendered comments/_comment.html.erb (0.5ms)
+  Rendered posts/show.html.erb within layouts/application (13.5ms)
+  Rendered shared/_main_nav.html.erb (2.1ms)
+Completed 200 OK in 119ms (Views: 58.1ms | ActiveRecord: 57.7ms)
+
+
+Started GET "/subs" for ::1 at 2022-01-15 18:09:17 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (6.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:11
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qvc0YBQBaJe4mj8FZjhuig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered subs/index.html.erb within layouts/application (14.9ms)
+  Rendered shared/_main_nav.html.erb (1.8ms)
+Completed 200 OK in 38ms (Views: 28.9ms | ActiveRecord: 7.1ms)
+
+

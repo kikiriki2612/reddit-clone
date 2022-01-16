@@ -77,12 +77,43 @@ ol li {
   height: 267.19px;
   margin-top: 35px;
   border-radius: 3px;
-  padding-bottom: 25px;
+  padding-bottom: 15px;
 }
 
-.box-description-index-page
 a:hover {
   text-decoration: none;
   color: black;
+}
+
+.btn-primary {
+  border-radius: 26px;
+  padding-left: 57px;
+  padding-right: 57px;
+}
+
+.btn-outline-primary {
+  margin-top: 12px;
+  border-radius: 26px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.create-post-community {
+  padding-top: 12px;
+  margin: 0 auto;
+}
+
+.box-description-ad {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  width: 257.7px;
+  height: 241.19px;
+  margin-top: 35px;
+  border-radius: 3px;
+  padding-bottom: 25px;
+  padding: 8px;
 }
 /*# sourceMappingURL=main_content_index.css.map */

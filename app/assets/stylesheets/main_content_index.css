@@ -109,11 +109,23 @@ a:hover {
           flex: 1;
   background-color: #f8f9fa;
   border: 1px solid #ccc;
-  width: 257.7px;
+  width: 259.7px;
   height: 241.19px;
   margin-top: 35px;
   border-radius: 3px;
   padding-bottom: 25px;
   padding: 8px;
+}
+
+@media only screen and (max-width: 720px) {
+  .hello,
+  .box-4,
+  .nav-ul,
+  .me-2 {
+    display: none;
+  }
+  .box-3 {
+    width: 98%;
+  }
 }
 /*# sourceMappingURL=main_content_index.css.map */

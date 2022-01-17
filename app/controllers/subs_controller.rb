@@ -51,7 +51,8 @@ class SubsController < ApplicationController
         end
 
         respond_to do |format|
-            format.json { reender :search }
+            format.html { render :main_nav }
+            format.json { render :search }
         end
     end
 

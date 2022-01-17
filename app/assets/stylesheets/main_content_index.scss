@@ -1,118 +1,124 @@
 .index-page {
-    display: flex;
-    width: 75%;
-    margin: 0 auto;
-
-
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
 }
 
 .something {
-    width: 89%;
+  width: 89%;
 }
 
-
 .box-0 {
-    flex-grow: 1;
-    height: 38px;
-    margin-top: 20px;
-    width: 59%;
-    padding: 0 16px;
-    margin-left: 35px;
-    
+  flex-grow: 1;
+  height: 38px;
+  margin-top: 20px;
+  width: 59%;
+  padding: 0 16px;
+  margin-left: 35px;
 }
 
 .box-1 {
-    border: 1px solid #ccc;
-    background: #f8f9fa;
-    margin-top: 12px;
-    margin-right: 12px;
-    margin-bottom: 12px;
-    margin-left: 50px;
-    border-radius: 5px;
-    width: 60%;
-    padding:7px;
-
+  border: 1px solid #ccc;
+  background: #f8f9fa;
+  margin-top: 12px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  margin-left: 50px;
+  border-radius: 5px;
+  width: 60%;
+  padding: 7px;
 }
 
 .box-3:hover {
-    border: 1px solid #898989;
-    cursor: pointer;
+  border: 1px solid #898989;
+  cursor: pointer;
 }
 
 p {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 span {
-    font-size: 12px;
-    color: 	#9a9999;
-    display: inline-block;
+  font-size: 12px;
+  color: #9a9999;
+  display: inline-block;
 }
 
 h5 {
-    display: inline-block;
+  display: inline-block;
 }
 
 h5:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-
 #h6-reddit-rules {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 ol li {
-    border-bottom: 1px solid #edeff1;
-    padding: 1px;
-    font-size: 14px;
-
+  border-bottom: 1px solid #edeff1;
+  padding: 1px;
+  font-size: 14px;
 }
 
 .box-description-index-page {
-    flex: 1;
-    background-color: #f8f9fa;
-    border: 1px solid #ccc;
-    // height: fit-content;
-    width: 271.7px;
-    height: 267.19px;
-    margin-top: 35px;
-    border-radius: 3px;
-    padding-bottom: 15px;
+  flex: 1;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  // height: fit-content;
+  width: 271.7px;
+  height: 267.19px;
+  margin-top: 35px;
+  border-radius: 3px;
+  padding-bottom: 15px;
 }
 
 a:hover {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .btn-primary {
-    border-radius: 26px;
-    padding-left: 57px;
-    padding-right: 57px;
+  border-radius: 26px;
+  padding-left: 57px;
+  padding-right: 57px;
 }
 
 .btn-outline-primary {
-    margin-top: 12px;
-    border-radius: 26px;
-    padding-left: 35px;
-    padding-right: 35px;
+  margin-top: 12px;
+  border-radius: 26px;
+  padding-left: 35px;
+  padding-right: 35px;
 }
 
 .create-post-community {
-    padding-top: 12px;
-    margin: 0 auto;
+  padding-top: 12px;
+  margin: 0 auto;
 }
 
 .box-description-ad {
-    flex: 1;
-    background-color: #f8f9fa;
-    border: 1px solid #ccc;
-    width: 257.7px;
-    height: 241.19px;
-    margin-top: 35px;
-    border-radius: 3px;
-    padding-bottom: 25px;
-    padding: 8px;
+  flex: 1;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  width: 259.7px;
+  height: 241.19px;
+  margin-top: 35px;
+  border-radius: 3px;
+  padding-bottom: 25px;
+  padding: 8px;
+}
+
+@media only screen and (max-width: 720px) {
+  .hello,
+  .box-4,
+  .nav-ul,
+  .me-2 {
+    display: none;
+  }
+
+  .box-3 {
+    width: 98%;
+  }
 }

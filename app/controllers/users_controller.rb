@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
     before_action :require_signed_in!, only: [:show]
     before_action :require_signed_out!, only: [:new, :create]
-
+    before_action :index
+    
+    def index 
+        @q = Sub.ransack(params[:q])
+        @subs = @q.result
+    end
     def new
         @user = User.new
     end

@@ -1,6 +1,12 @@
 class PostsController < ApplicationController
     before_action :require_signed_in!, except: [:show]
     before_action :require_user_owns_post!, only: [:edit, :update]
+    before_action :index
+    
+    def index 
+      @q = Sub.ransack(params[:q])
+      @subs = @q.result
+  end
   
     def new
       @post = Post.new

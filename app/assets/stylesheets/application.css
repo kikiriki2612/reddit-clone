@@ -250,6 +250,10 @@ a:hover {
   background-color: white;
 }
 
+input[name="commit"] {
+  color: gray;
+}
+
 .create-sub-box {
   background-color: #f8f9fa;
   width: 55%;

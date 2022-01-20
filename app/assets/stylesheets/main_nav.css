@@ -41,4 +41,8 @@
 .nav-item2:hover {
   background-color: white;
 }
+
+input[name="commit"] {
+  color: gray;
+}
 /*# sourceMappingURL=main_nav.css.map */

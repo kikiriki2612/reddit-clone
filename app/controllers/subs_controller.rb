@@ -2,10 +2,27 @@ class SubsController < ApplicationController
 
     before_action :require_signed_in!, except: [:index, :show]
     before_action :require_user_owns_sub!, only: [:edit, :update]
-
+    before_action :index
+    
     def index 
-        @subs = Sub.all
-        render :index 
+        @q = Sub.ransack(params[:q])
+        @subs = @q.result
+
+        # @subs = Sub.all
+        # render :index 
+
+    #     if @q = Sub.ransack(params[:q])
+    #         @subs = @q.result
+    #     else 
+    #         @subs = Sub.all
+    #         render :index
+    #     end
+    end
+
+    def search
+        @subs = Sub.all 
+        index
+        render :index
     end
 
     def show 
@@ -43,18 +60,18 @@ class SubsController < ApplicationController
         @sub = Sub.find(params[:id])
     end
 
-    def search 
-        if params[:query].present?
-            @subs = Sub.where('title ~ ?', params[:query])
-        else 
-            @subs. Sub.none
-        end
+    # def search 
+    #     if params[:query].present?
+    #         @subs = Sub.where('title ~ ?', params[:query])
+    #     else 
+    #         @subs. Sub.none
+    #     end
 
-        respond_to do |format|
-            format.html { render :main_nav }
-            format.json { render :search }
-        end
-    end
+    #     respond_to do |format|
+    #         format.html { render :main_nav }
+    #         format.json { render :search }
+    #     end
+    # end
 
     private 
 

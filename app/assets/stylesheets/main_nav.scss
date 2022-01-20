@@ -1,58 +1,46 @@
 .my-own-color {
-    color: #1a1a1b;
+  color: #1a1a1b;
 }
 
 .nav-link {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    white-space: nowrap;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
 }
 .nav-item:hover {
-    background-color: #dae0e6;
+  background-color: #dae0e6;
 }
 
 .nav-link:hover {
-    color: #1a1a1b;
-    text-decoration: none;
+  color: #1a1a1b;
+  text-decoration: none;
 }
 
 .navbar {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
- }
-
- .sign-in-link {
-     font-size: 12px;
- }
-
- .btn-primary2 {
-     padding-left: 25px;
-     padding-right: 25px;
- }
-
- .btn-outline-primary2 {
-    padding-left: 25px;
-    padding-right: 25px;
-    margin-bottom: 9px;
- }
-
-// @media (max-width: 229px) {
-//     .navbar-brand {
-//         display:block;
-//     }
-
-//     .form-control {
-//         display: none;
-//     }
-//     .nav-ul {
-//         display: none;
-//     }
-
-
-// }
-
-.nav-item2:hover {
-    background-color: white;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
+.sign-in-link {
+  font-size: 12px;
+}
+
+.btn-primary2 {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.btn-outline-primary2 {
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 9px;
+}
+
+.nav-item2:hover {
+  background-color: white;
+}
+
+input[name="commit"] {
+  color: gray;
+}

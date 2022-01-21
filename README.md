@@ -2,6 +2,8 @@
 
 This project is a Rails app clone of Reddit.
 
+Technologies used:
+
 * Ruby version: 2.6.3
 * Rails version: 5.2.6
 * Preconfigured authentication with the BCrypt gem

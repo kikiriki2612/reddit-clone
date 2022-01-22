@@ -21,7 +21,7 @@
       <ul>
         <% @sub.posts.each do |post| %>
         <a href="<%= post_url(post) %>"><div class="box-3">
-          <li id="sub-title">(<%= post.votes %>)<%= post.title %></li>
+          <li id="sub-title">(<%= post.votes %>)<%= " " + post.title %></li>
           <p id="p-content"> <%= post.content %> </p>
         </div>
         </a>

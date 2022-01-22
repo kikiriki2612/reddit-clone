@@ -43,12 +43,16 @@
     </div>
     <br>
      
-
-
-      <i class="fal fa-comment-alt"></i>
-      <span> Comments </span>       <a class="a-edit" href="<%= edit_post_url(@post) if @post.author == current_user %>">Edit this post</a>
+      <i class="fal fa-comment-alt"></i> 
+      <span> Comments </span>
+      <a class="a-edit" href="<%= edit_post_url(@post) if @post.author == current_user %>">Edit this post</a>
 
       <hr>
+
+      <div class="div-comment">
+        <span><a href="<%= new_post_comment_url(@post.id) %>">Add a comment</a></span>
+      </div>
+
       <br>
 
       <ul>
@@ -62,25 +66,21 @@
         <% end %>
       </ul>
 
-      <a href="<%= new_post_comment_url(@post.id) %>">Comment on this post!</a>
-
-      
   </div>
 </div>
 
-<div class="sub-show-side-bar2">
-  <div class="box-description2">
-    <h6> About Community </h6>
-    <p id="p-description"><%= @sub.description %></p>
-  </div>
+    <div class="sub-show-side-bar2">
+      <div class="box-description2">
+        <h6> About Community </h6>
+        <p id="p-description"><%= @sub.description %></p>
+      </div>
 
-  <div class="box-description-ad">
-    <span>ADVERTISEMENT</span>
-    <a href="https://www.rockstargames.com/newswire/article/ak759k91592728/gta-online-the-contract-out-now?rdt_cid=3470073563149613612&utm_campaign=278%3Athecontract-launch-20211215&utm_content=us-eng&utm_medium=p_social&utm_source=reddit"><%= image_tag("ad.png", :alt => "ad", style:'display:inline;') %></a>
-  </div>
+      <div class="box-description-ad">
+        <span>ADVERTISEMENT</span>
+        <a href="https://www.rockstargames.com/newswire/article/ak759k91592728/gta-online-the-contract-out-now?rdt_cid=3470073563149613612&utm_campaign=278%3Athecontract-launch-20211215&utm_content=us-eng&utm_medium=p_social&utm_source=reddit"><%= image_tag("ad.png", :alt => "ad", style:'display:inline;') %></a>
+      </div>
 
-</div>
-
+    </div>
 
 </div>
  

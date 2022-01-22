@@ -13,12 +13,14 @@
     name="comment[parent_comment_id]"
     value="<%= comment.parent_comment_id %>">
 
-  <label>
-    Body
-    <br>
-    <textarea name="comment[body]"><%= comment.body %></textarea>
-  </label>
-  <br>
+  <div class="container">
+    <div class="create-sub-box">
 
-  <input type="submit">
+      <label>
+        <textarea name="comment[body]" class="form-control sub-create" placeholder="Add a comment"><%= comment.body %></textarea>
+      </label>
+
+      <input type="submit" class="btn create-color-red create-button-red" value="Comment"></button>
+    </div>
+  </div>
 </form>

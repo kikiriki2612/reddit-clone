@@ -1,5 +1,11 @@
 class CommentsController < ApplicationController
     before_action :require_signed_in!, only: [:new, :create]
+    before_action :index
+
+    def index 
+      @q = Sub.ransack(params[:q])
+      @subs = @q.result
+  end
   
     def new
       @comment = Comment.new(post_id: params[:post_id])

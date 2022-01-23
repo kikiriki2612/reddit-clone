@@ -12,7 +12,7 @@
   
     <a href="<%= sub_url(sub) %>"><div class="box-3">
       <h5> <li><%= "r/" + sub.title %><br></li> </h5>
-      <span><%= " Posted by u/" + current_user.username %></span>
+      <span><%= " Posted by u/" + sub.moderator.username %></span> 
       <p> <%= sub.description %> </p>
     </div>
     </a>

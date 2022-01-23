@@ -61,9 +61,8 @@
           <li class="li-comments"> <span><%= "u/" + @post.author.username %></span>
             <%= render("comments/comment",
                       comment: top_level_comment,
-                      comments_by_parent: comments_by_parent) %>
-          </li>
-        <% end %>
+                      comments_by_parent: comments_by_parent)%>
+          <% end %>
       </ul>
 
   </div>

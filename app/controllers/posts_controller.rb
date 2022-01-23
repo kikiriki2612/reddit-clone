@@ -23,7 +23,6 @@ class PostsController < ApplicationController
   
     def show
       @post = Post.find(params[:id])
-      # binding.pry
       @sub = Sub.find_by(slug: @post.subs.first.slug)
     end
   

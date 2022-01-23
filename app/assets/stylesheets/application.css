@@ -223,6 +223,15 @@ a:hover {
     margin: 0 auto;
     margin-top: 25px;
   }
+  #h1-sub {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 32px;
+    padding: 0 2px 4px 0;
+    margin-left: 242px;
+    margin-top: 13px;
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 945px) {
@@ -231,6 +240,19 @@ a:hover {
   .sub-show-side-bar,
   .me-2 {
     display: none;
+  }
+  .container-post {
+    width: 71%;
+    background-color: #f8f9fa;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: 61px;
+    border-radius: 3px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   .container-post1 {
     padding: 10px;
@@ -247,6 +269,21 @@ a:hover {
   }
   .sub-show-side-bar2 {
     display: none;
+  }
+  #h1-sub {
+    position: fixed;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 32px;
+    padding: 0 2px 4px 0;
+    margin-top: 13px;
+    width: 100%;
+    margin-left: 122px;
+  }
+  .form-control {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
 }
 
@@ -298,6 +335,10 @@ input[name="commit"] {
   color: gray;
 }
 
+.sub_search {
+  width: 21%;
+}
+
 .create-sub-box {
   background-color: #f8f9fa;
   width: 55%;
@@ -305,6 +346,7 @@ input[name="commit"] {
   overflow: hidden;
   border-radius: 8px;
   padding-top: 22px;
+  padding-right: inherit;
 }
 
 label {
@@ -338,10 +380,6 @@ label {
 
 .box-checkbox {
   margin-left: 15px;
-}
-
-.form-control {
-  width: inherit;
 }
 
 .create-color-red {
@@ -420,16 +458,6 @@ h6 {
 
 #p-description {
   padding: 10px;
-}
-
-#h1-sub {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 32px;
-  padding: 0 2px 4px 0;
-  margin-left: 242px;
-  margin-top: 13px;
-  width: 100%;
 }
 
 .box-3 {

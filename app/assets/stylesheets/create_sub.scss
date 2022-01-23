@@ -5,12 +5,11 @@
   overflow: hidden;
   border-radius: 8px;
   padding-top: 22px;
+  padding-right: inherit;
 }
-
 label {
   width: 93%;
 }
-
 .sub-create {
   margin: 15px;
 }
@@ -38,10 +37,6 @@ label {
 
 .box-checkbox {
   margin-left: 15px;
-}
-
-.form-control {
-  width: inherit;
 }
 
 .create-color-red {

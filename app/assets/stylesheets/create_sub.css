@@ -5,6 +5,7 @@
   overflow: hidden;
   border-radius: 8px;
   padding-top: 22px;
+  padding-right: inherit;
 }
 
 label {
@@ -38,10 +39,6 @@ label {
 
 .box-checkbox {
   margin-left: 15px;
-}
-
-.form-control {
-  width: inherit;
 }
 
 .create-color-red {

@@ -45,7 +45,9 @@
      
       <i class="fal fa-comment-alt"></i> 
       <span> Comments </span>
-      <a class="a-edit" href="<%= edit_post_url(@post) if @post.author == current_user %>">Edit this post</a>
+      <% if @post.author == current_user %>
+        <a class="a-edit" href="<%= edit_post_url(@post) %>">Edit this post</a>
+      <% end %>
 
       <hr>
 

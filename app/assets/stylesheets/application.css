@@ -196,10 +196,17 @@ a:hover {
 
 @media only screen and (min-width: 945px) {
   .container-post1 {
-    width: 65%;
+    width: 75%;
     margin: 0 auto;
     padding: 10px;
     margin-right: 25px;
+  }
+  .index-page {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 75%;
+    margin: 0 auto;
   }
   .container-post {
     width: 65%;
@@ -228,7 +235,7 @@ a:hover {
     font-weight: 700;
     line-height: 32px;
     padding: 0 2px 4px 0;
-    margin-left: 242px;
+    padding-left: 209px;
     margin-top: 13px;
     width: 100%;
   }
@@ -257,6 +264,12 @@ a:hover {
   .container-post1 {
     padding: 10px;
   }
+  .index-page {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 75%;
+  }
   .main-container {
     width: 100%;
     margin: 25px;
@@ -271,14 +284,13 @@ a:hover {
     display: none;
   }
   #h1-sub {
-    position: fixed;
     font-size: 28px;
     font-weight: 700;
     line-height: 32px;
     padding: 0 2px 4px 0;
     margin-top: 13px;
     width: 100%;
-    margin-left: 122px;
+    padding-left: 50px;
   }
   .form-control {
     width: 100%;

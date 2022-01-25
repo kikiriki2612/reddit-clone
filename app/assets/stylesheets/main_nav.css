@@ -44,9 +44,14 @@
 
 input[name="commit"] {
   color: gray;
+  float: right;
 }
 
 .sub_search {
-  width: 21%;
+  white-space: nowrap;
+}
+
+.me-2:hover {
+  border: 1px solid #0e88f1;
 }
 /*# sourceMappingURL=main_nav.css.map */

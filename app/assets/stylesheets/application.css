@@ -347,10 +347,15 @@ a:hover {
 
 input[name="commit"] {
   color: gray;
+  float: right;
 }
 
 .sub_search {
-  width: 21%;
+  white-space: nowrap;
+}
+
+.me-2:hover {
+  border: 1px solid #0e88f1;
 }
 
 .create-sub-box {
@@ -517,6 +522,10 @@ h6 {
 
 .create-post-subs {
   width: 96%;
+}
+
+.create-post-subs:hover {
+  border: 1px solid #0e88f1;
 }
 
 #r-rules {

@@ -5,16 +5,14 @@
       <%= image_tag("red1.png", :alt => "reddit logo", style: 'height:43px;width:86px;') %>
     </a>
     
-      <%# <form class="d-flex justify-content-center">
-            <input class="form-control me-2" name="searchBar" type="search" placeholder="Search Reddit" aria-label="Search">
-      </form> %>
+
 
       <%= search_form_for @q do |f| %>
       <div class = "form-control me-2">
         <%#= f.label :title_cont %>
         <%= f.search_field :title_cont %>
     
-        <%= f.submit 'search ' %>
+        <%= f.submit 'search' %>
       </div>
       <% end %>
 

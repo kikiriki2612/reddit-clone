@@ -294,6 +294,7 @@ a:hover {
     padding-left: 50px;
   }
   .form-control {
+    width: inherit;
     width: 100%;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;

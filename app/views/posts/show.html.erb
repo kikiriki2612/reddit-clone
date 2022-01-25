@@ -61,7 +61,7 @@
         <% comments_by_parent = @post.comments_by_parent %>
         
         <% comments_by_parent[nil].each do |top_level_comment| %>
-          <li class="li-comments"> <span><%= "u/" + @post.author.username %></span>
+          <li class="li-comments"> <span><%= "u/" + top_level_comment.author.username %></span>
             <%= render("comments/comment",
                       comment: top_level_comment,
                       comments_by_parent: comments_by_parent)%>

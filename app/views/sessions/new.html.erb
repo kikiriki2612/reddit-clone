@@ -12,10 +12,22 @@
 			</div>
 			<div class="card-body">
 				<form>
+
+				<div class="errors">
+					<% if flash[:errors] %>
+						<% flash[:errors].each do |error| %>
+							<div class="alert alert-danger" role="alert"><%= error %></div>
+						<% end %>
+					<% end %>
+				</div>
+
+
 					<div class="input-group form-group">
 						<input type="text" class="form-control" name="user[username]" id="user_username"  placeholder="username">
 						
 					</div>
+						
+
 					<div class="input-group form-group">
 						<input type="password" class="form-control" name="user[password]" id="user_password" placeholder="password">
 					</div>

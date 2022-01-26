@@ -1,70 +1,68 @@
-.container5{
-    margin-top: 42px;
-    height: 100%;
-    align-content: center;
+.container5 {
+  margin-top: 42px;
+  height: 100%;
+  align-content: center;
 }
 
-.card{
-    height: 370px;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 400px;
-    background-color: #494949 !important;
+.card {
+  height: 385px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: #070600 !important;
 }
 
-.card-header h3{
-    color: white;
+.card-header h3 {
+  color: white;
 }
 
-.input-group-prepend span{
-    width: 50px;
-    background-color: #FF6314;
-    color: black;
-    border:0 !important;
-}
-    
-input:focus{
-outline: 0 0 0 0  !important;
-box-shadow: 0 0 0 0 !important;
-
+.input-group-prepend span {
+  width: 50px;
+  background-color: #ff6314;
+  color: black;
+  border: 0 !important;
 }
 
-.remember{
-color: white;
+input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
 }
 
-.remember input
-{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
+.remember {
+  color: white;
 }
 
-.login_btn{
-color: black;
-background-color: #FFC312;
-width: 100px;
+.remember input {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
 }
 
-.login_btn:hover{
-color: black;
-background-color: white;
+.login_btn {
+  color: black;
+  background-color: #ffc312;
+  width: 100px;
 }
 
-.links{
-color: white;
+.login_btn:hover {
+  color: black;
+  background-color: white;
 }
 
-.links a{
-margin-left: 4px;
+.links {
+  color: white;
+}
+
+.links a {
+  margin-left: 4px;
 }
 
 .form-control {
-    margin-top: 7px;
-    margin-bottom: 7px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 
-.input-group >.form-control {
-    background-color: #f8f9fa;
+.input-group > .form-control {
+  background-color: #f8f9fa;
 }

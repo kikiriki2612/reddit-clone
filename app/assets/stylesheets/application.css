@@ -237,7 +237,6 @@ a:hover {
     padding: 0 2px 4px 0;
     padding-left: 209px;
     margin-top: 13px;
-    width: 100%;
   }
 }
 
@@ -445,7 +444,7 @@ label {
   height: 90px;
   margin: 0 auto;
   padding: 10px;
-  width: 123%;
+  width: 126%;
 }
 
 .show-sub {

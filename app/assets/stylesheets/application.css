@@ -437,6 +437,7 @@ label {
 .blue-container {
   background-color: #33a8ff;
   height: 90px;
+  width: 123%;
 }
 
 .white-container {
@@ -444,6 +445,7 @@ label {
   height: 90px;
   margin: 0 auto;
   padding: 10px;
+  width: 123%;
 }
 
 .show-sub {

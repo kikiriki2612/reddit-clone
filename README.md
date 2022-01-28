@@ -1,5 +1,8 @@
 # Reddit clone
 
+[![Thumbnail](reddit-reddit.jpg)](http://reddit-reddit.herokuapp.com/subs)
+
+
 This project is a Rails app clone of Reddit.
 
 Technologies used:

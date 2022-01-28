@@ -1,8 +1,10 @@
 # Reddit clone
 
-[![Thumbnail](reddit-reddit.jpg)](http://reddit-reddit.herokuapp.com/subs)
+[![Thumbnail](https://www.howtogeek.com/wp-content/uploads/2019/12/Reddit-Karma-Header.jpg?width=1198&trim=1,1&bg-color=000&pad=1,1)](http://reddit-reddit.herokuapp.com/subs)
 
-This project is a Rails app clone of Reddit.
+Website: http://reddit-reddit.herokuapp.com/subs
+
+# This project is a Rails app clone of Reddit.
 
 Technologies used:
 
@@ -20,10 +22,7 @@ Technologies used:
 
 - Database initialization
 
-- How to run the test suite
-
 - Services (job queues, cache servers, search engines, etc.)
 
 - Deployment instructions
 
-- ...

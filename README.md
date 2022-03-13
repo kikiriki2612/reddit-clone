@@ -14,15 +14,3 @@ Technologies used:
 - HTML Layouts developed with Bootstrap 5
 - SCSS utility classes for alignment, spacing and font size standardization
 
-- System dependencies
-
-- Configuration
-
-- Database creation
-
-- Database initialization
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
